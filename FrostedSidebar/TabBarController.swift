@@ -40,6 +40,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         sidebar.showFromRight = true
         
         print("working")
+        print("Added Print ln")
 	}
 	
 }
