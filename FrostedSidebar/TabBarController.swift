@@ -38,6 +38,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 			4: {self.sidebar.dismissAnimated(true, completion: { finished in self.selectedIndex = 4}) }]
         
         sidebar.showFromRight = true
+        
+        print("working")
 	}
 	
 }
