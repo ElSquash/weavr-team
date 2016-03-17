@@ -3,13 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Item-->
         <scene sceneID="qSd-5i-x6d">
             <objects>
-                <viewController id="yFd-Pw-cF0" customClass="ViewController" customModule="FrostedSidebar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yFd-Pw-cF0" customClass="ProfileViewController" customModule="Weavr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="28J-8P-oJS"/>
                         <viewControllerLayoutGuide type="bottom" id="AhR-c2-Zoo"/>
@@ -18,11 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="aXT-I8-4Vl">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="profileBackground.gif" translatesAutoresizingMaskIntoConstraints="NO" id="aXT-I8-4Vl">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Controller 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6o-9F-JKU">
-                                <rect key="frame" x="236" y="289" width="129" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◉ twitch.tv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvx-Yu-9cC">
+                                <rect key="frame" x="128" y="183" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -32,33 +33,144 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="burger"/>
                                 <connections>
-                                    <action selector="onBurger" destination="yFd-Pw-cF0" eventType="touchUpInside" id="5Az-vg-sfe"/>
+                                    <action selector="onBurger" destination="yFd-Pw-cF0" eventType="touchUpInside" id="uzD-PY-QjX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMx-LD-QPz">
+                                <rect key="frame" x="244" y="63" width="114" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="no-profile-pic" translatesAutoresizingMaskIntoConstraints="NO" id="ZBj-5Z-JYV">
+                                <rect key="frame" x="20" y="144" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.99587285260000002" green="0.95905874710000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7hG-Tx-c5f"/>
+                                    <constraint firstAttribute="width" secondItem="ZBj-5Z-JYV" secondAttribute="height" multiplier="1:1" id="YDF-Gp-3a2"/>
+                                    <constraint firstAttribute="width" constant="100" id="bZn-H8-ky7"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YDF-Gp-3a2"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◉ Political Elections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPJ-pk-Eog">
+                                <rect key="frame" x="119" y="144" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◉ The Pope" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwP-1z-ydu">
+                                <rect key="frame" x="119" y="223" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="BH8-9l-uzb">
+                                <rect key="frame" x="182" y="91" width="236" height="29"/>
+                                <segments>
+                                    <segment title="Met: 120" enabled="NO"/>
+                                    <segment title="Stars: 12"/>
+                                    <segment title="Blocked: 0"/>
+                                </segments>
+                                <color key="tintColor" red="0.67764423076923075" green="0.0" blue="0.57983974572003194" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaving: 30 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfB-8W-923">
+                                <rect key="frame" x="20" y="286" width="89" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-sp-BHt">
+                                <rect key="frame" x="13" y="351" width="575" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="0.1949353448275862" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="kbc-3g-t5v"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me Today:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDa-Di-ZN3">
+                                <rect key="frame" x="260" y="320" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: Starbucks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAd-eG-V2H">
+                                <rect key="frame" x="20" y="264" width="105" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Bvx-Yu-9cC" firstAttribute="leading" secondItem="ZBj-5Z-JYV" secondAttribute="trailing" constant="8" id="0EL-Zf-hcc"/>
                             <constraint firstAttribute="bottom" secondItem="aXT-I8-4Vl" secondAttribute="bottom" id="2Y8-C2-k4e"/>
-                            <constraint firstAttribute="centerX" secondItem="I6o-9F-JKU" secondAttribute="centerX" id="F0s-cM-xdS"/>
+                            <constraint firstItem="NwP-1z-ydu" firstAttribute="top" secondItem="Bvx-Yu-9cC" secondAttribute="bottom" constant="19" id="2bl-4Z-2qq"/>
+                            <constraint firstItem="FPJ-pk-Eog" firstAttribute="top" secondItem="BH8-9l-uzb" secondAttribute="bottom" constant="25" id="6WL-YZ-9HZ"/>
+                            <constraint firstItem="5oT-sp-BHt" firstAttribute="top" secondItem="JDa-Di-ZN3" secondAttribute="bottom" constant="10" id="707-nk-2Cy"/>
+                            <constraint firstItem="BH8-9l-uzb" firstAttribute="centerX" secondItem="aXT-I8-4Vl" secondAttribute="centerX" id="8OZ-Lo-3jE"/>
+                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="leading" secondItem="UfB-8W-923" secondAttribute="trailing" constant="-109" id="AQ8-dr-9Vz"/>
+                            <constraint firstItem="5oT-sp-BHt" firstAttribute="leading" secondItem="aXT-I8-4Vl" secondAttribute="trailing" constant="-591" id="CEq-Lf-MKN"/>
+                            <constraint firstItem="Bvx-Yu-9cC" firstAttribute="top" secondItem="FPJ-pk-Eog" secondAttribute="bottom" constant="18" id="FBW-tP-Nzb"/>
+                            <constraint firstItem="ZBj-5Z-JYV" firstAttribute="top" secondItem="qMx-LD-QPz" secondAttribute="bottom" constant="52" id="J4O-fG-0R3"/>
+                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="leading" secondItem="fAd-eG-V2H" secondAttribute="trailing" constant="-125" id="N3H-7a-H94"/>
+                            <constraint firstItem="JDa-Di-ZN3" firstAttribute="top" secondItem="UfB-8W-923" secondAttribute="bottom" constant="20" id="NLL-Ak-bSa"/>
+                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="top" secondItem="qMx-LD-QPz" secondAttribute="bottom" constant="-86" id="Nam-PB-OJr"/>
+                            <constraint firstItem="5oT-sp-BHt" firstAttribute="top" secondItem="UfB-8W-923" secondAttribute="bottom" constant="38" id="PWh-ar-1f5"/>
                             <constraint firstItem="aXT-I8-4Vl" firstAttribute="leading" secondItem="X4b-dZ-l1O" secondAttribute="leading" id="Pai-eO-zfB"/>
+                            <constraint firstItem="BH8-9l-uzb" firstAttribute="top" secondItem="qMx-LD-QPz" secondAttribute="bottom" constant="5" id="T6g-2N-klf"/>
+                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="leading" secondItem="ZBj-5Z-JYV" secondAttribute="trailing" constant="-136" id="TBX-rK-DgE"/>
+                            <constraint firstItem="JDa-Di-ZN3" firstAttribute="centerX" secondItem="aXT-I8-4Vl" secondAttribute="centerX" id="TDT-LN-9u2"/>
+                            <constraint firstItem="UfB-8W-923" firstAttribute="top" secondItem="fAd-eG-V2H" secondAttribute="bottom" constant="8" id="TvO-j5-Okc"/>
+                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="leading" secondItem="ZBj-5Z-JYV" secondAttribute="trailing" constant="-120" id="Vrg-CH-J4i"/>
+                            <constraint firstItem="qMx-LD-QPz" firstAttribute="centerX" secondItem="aXT-I8-4Vl" secondAttribute="centerX" constant="1" id="W6H-7V-g0D"/>
                             <constraint firstItem="Sgi-LI-Rzr" firstAttribute="leading" secondItem="aXT-I8-4Vl" secondAttribute="trailing" constant="-39" id="WjI-sl-T2G"/>
+                            <constraint firstItem="FPJ-pk-Eog" firstAttribute="leading" secondItem="ZBj-5Z-JYV" secondAttribute="trailing" constant="-1" id="a9x-YG-Rzr"/>
                             <constraint firstItem="aXT-I8-4Vl" firstAttribute="top" secondItem="X4b-dZ-l1O" secondAttribute="top" id="aG0-wg-dfN"/>
+                            <constraint firstItem="5oT-sp-BHt" firstAttribute="width" secondItem="aXT-I8-4Vl" secondAttribute="width" constant="-25" id="cS5-df-lmo"/>
+                            <constraint firstItem="5oT-sp-BHt" firstAttribute="width" secondItem="aXT-I8-4Vl" secondAttribute="width" id="eP8-tS-9aj"/>
+                            <constraint firstItem="5oT-sp-BHt" firstAttribute="centerX" secondItem="aXT-I8-4Vl" secondAttribute="centerX" id="gRU-Zg-0ve"/>
+                            <constraint firstItem="ZBj-5Z-JYV" firstAttribute="top" secondItem="BH8-9l-uzb" secondAttribute="bottom" constant="25" id="j14-Hf-bok"/>
                             <constraint firstAttribute="trailing" secondItem="aXT-I8-4Vl" secondAttribute="trailing" id="mA0-o5-49Q"/>
-                            <constraint firstAttribute="centerY" secondItem="I6o-9F-JKU" secondAttribute="centerY" id="nfM-nB-vfF"/>
+                            <constraint firstItem="5oT-sp-BHt" firstAttribute="leading" secondItem="aXT-I8-4Vl" secondAttribute="trailing" constant="-591" id="n8z-S0-Qe3"/>
+                            <constraint firstItem="FPJ-pk-Eog" firstAttribute="top" secondItem="ZBj-5Z-JYV" secondAttribute="top" id="oJ2-P5-C5H"/>
+                            <constraint firstItem="NwP-1z-ydu" firstAttribute="leading" secondItem="ZBj-5Z-JYV" secondAttribute="trailing" constant="-1" id="rd2-Ci-Vz6"/>
+                            <constraint firstItem="fAd-eG-V2H" firstAttribute="top" secondItem="ZBj-5Z-JYV" secondAttribute="bottom" constant="20" id="vgh-s1-cRl"/>
+                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="leading" secondItem="ZBj-5Z-JYV" secondAttribute="trailing" constant="-189" id="wcl-sF-N7E"/>
                             <constraint firstItem="Sgi-LI-Rzr" firstAttribute="top" secondItem="X4b-dZ-l1O" secondAttribute="top" constant="28" id="zVh-p0-qNa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="TBX-rK-DgE"/>
+                                <exclude reference="wcl-sF-N7E"/>
+                                <exclude reference="J4O-fG-0R3"/>
+                                <exclude reference="6WL-YZ-9HZ"/>
+                                <exclude reference="CEq-Lf-MKN"/>
+                                <exclude reference="PWh-ar-1f5"/>
+                                <exclude reference="eP8-tS-9aj"/>
+                                <exclude reference="n8z-S0-Qe3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="9eZ-lD-MBt"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="profile_pic" destination="ZBj-5Z-JYV" id="usE-7u-vAU"/>
+                        <outlet property="userName" destination="qMx-LD-QPz" id="TTz-8a-0sb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dvg-aq-5CD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="-502"/>
+            <point key="canvasLocation" x="1277" y="-521"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lWc-99-BKQ">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="wsn-Gr-6uq" customClass="ViewController" customModule="FrostedSidebar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="wsn-Gr-6uq" customClass="ViewController" customModule="Weavr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="au1-Kd-8M0"/>
                         <viewControllerLayoutGuide type="bottom" id="ih7-Ly-jhN"/>
@@ -106,7 +218,7 @@
         <!--Item-->
         <scene sceneID="ZlK-Wb-2aS">
             <objects>
-                <viewController id="VA2-Zc-qCQ" customClass="ViewController" customModule="FrostedSidebar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VA2-Zc-qCQ" customClass="ViewController" customModule="Weavr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LDU-Sj-WQx"/>
                         <viewControllerLayoutGuide type="bottom" id="RWE-EN-EgE"/>
@@ -162,7 +274,7 @@
         <!--Item-->
         <scene sceneID="7fk-0J-N8K">
             <objects>
-                <viewController id="j5D-bS-emu" customClass="ViewController" customModule="FrostedSidebar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j5D-bS-emu" customClass="ViewController" customModule="Weavr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZHE-c1-eli"/>
                         <viewControllerLayoutGuide type="bottom" id="STV-0o-JBn"/>
@@ -210,7 +322,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="6Ie-Xz-3lW">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="00u-vZ-mxX" customClass="TabBarController" customModule="FrostedSidebar" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="00u-vZ-mxX" customClass="TabBarController" customModule="Weavr" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6jS-hB-otR">
@@ -232,5 +344,7 @@
     <resources>
         <image name="Background.jpg" width="63" height="111"/>
         <image name="burger" width="19" height="17"/>
+        <image name="no-profile-pic" width="150" height="150"/>
+        <image name="profileBackground.gif" width="1866" height="1179"/>
     </resources>
 </document>
