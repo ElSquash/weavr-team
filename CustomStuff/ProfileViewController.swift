@@ -8,14 +8,21 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var userName: UILabel!
     
     @IBOutlet weak var profile_pic: UIImageView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        scrollView.delegate = self
+        scrollView.contentSize.height = 1000
 
     }
     
@@ -25,6 +32,7 @@ class ProfileViewController: UIViewController {
         profile_pic.layer.borderColor = UIColor.whiteColor().CGColor
         profile_pic.layer.cornerRadius = profile_pic.frame.width/2
         profile_pic.clipsToBounds = true
+        
     }
 
     override func didReceiveMemoryWarning() {
