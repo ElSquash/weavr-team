@@ -17,13 +17,14 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var contentView: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         scrollView.delegate = self
         scrollView.contentSize.height = 1000
-
+        
     }
     
     override func viewDidLayoutSubviews() {

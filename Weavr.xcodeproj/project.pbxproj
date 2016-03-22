@@ -32,14 +32,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02F64D211C92299800160248 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = CustomStuff/ProfileViewController.swift; sourceTree = "<group>"; };
+		02F64D211C92299800160248 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		02F64D231C986CE800160248 /* profileBackground.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = profileBackground.gif; path = FrostedSidebar/profileBackground.gif; sourceTree = SOURCE_ROOT; };
-		02F64D2D1CA1AB9B00160248 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = CustomStuff/MapViewController.swift; sourceTree = "<group>"; };
+		02F64D2D1CA1AB9B00160248 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2008D69B197021D300B89D6C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FrostedSidebar/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		2008D69C197021D300B89D6C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = FrostedSidebar/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		2008D69F1970223100B89D6C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = FrostedSidebar/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		2008D6A51970231B00B89D6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
-		2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = FrostedSidebar.swift; path = FrostedSidebar/FrostedSidebar.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = FrostedSidebar.swift; path = ../FrostedSidebar/FrostedSidebar.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		208E5DEE196DBE6F005653B3 /* Weavr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weavr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208E5DF2196DBE6F005653B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = FrostedSidebar/Info.plist; sourceTree = "<group>"; };
 		20A1FAD819B4B1CE00208E92 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = FrostedSidebar/TabBarController.swift; sourceTree = SOURCE_ROOT; };
@@ -72,9 +72,6 @@
 		208E5DE5196DBE6F005653B3 = {
 			isa = PBXGroup;
 			children = (
-				02F64D211C92299800160248 /* ProfileViewController.swift */,
-				2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */,
-				02F64D2D1CA1AB9B00160248 /* MapViewController.swift */,
 				208E5DF0196DBE6F005653B3 /* Weavr */,
 				208E5DEF196DBE6F005653B3 /* Products */,
 			);
@@ -91,6 +88,9 @@
 		208E5DF0196DBE6F005653B3 /* Weavr */ = {
 			isa = PBXGroup;
 			children = (
+				02F64D2D1CA1AB9B00160248 /* MapViewController.swift */,
+				2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */,
+				02F64D211C92299800160248 /* ProfileViewController.swift */,
 				20A1FAD819B4B1CE00208E92 /* TabBarController.swift */,
 				2008D69B197021D300B89D6C /* AppDelegate.swift */,
 				2008D69C197021D300B89D6C /* ViewController.swift */,
