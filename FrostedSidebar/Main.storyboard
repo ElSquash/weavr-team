@@ -42,14 +42,6 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgi-LI-Rzr">
-                                                <rect key="frame" x="566" y="35" width="19" height="18"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" image="burger"/>
-                                                <connections>
-                                                    <action selector="onBurger" destination="yFd-Pw-cF0" eventType="touchUpInside" id="uzD-PY-QjX"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMx-LD-QPz">
                                                 <rect key="frame" x="243" y="43" width="114" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -111,6 +103,17 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgi-LI-Rzr">
+                                                <rect key="frame" x="566" y="35" width="19" height="19"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="19" id="hUL-H4-ZAS"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="burger"/>
+                                                <connections>
+                                                    <action selector="onBurger" destination="yFd-Pw-cF0" eventType="touchUpInside" id="uzD-PY-QjX"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="UfB-8W-923" firstAttribute="leading" secondItem="2jW-NV-SS1" secondAttribute="leading" constant="13" id="9Dq-PE-fgc"/>
@@ -250,7 +253,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsa-Mc-D9E">
-                                                <rect key="frame" x="573" y="32" width="19" height="19"/>
+                                                <rect key="frame" x="566" y="35" width="19" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="RXR-p7-XZT"/>
                                                 </constraints>
@@ -268,9 +271,9 @@
                                             <constraint firstAttribute="width" constant="600" id="N0m-xg-qsa"/>
                                             <constraint firstAttribute="height" constant="600" id="WPI-bN-wBT"/>
                                             <constraint firstAttribute="height" constant="600" id="XmG-tj-ujS"/>
-                                            <constraint firstAttribute="trailing" secondItem="Wsa-Mc-D9E" secondAttribute="trailing" constant="8" id="aoC-OL-ATe"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wsa-Mc-D9E" secondAttribute="trailing" constant="15" id="aoC-OL-ATe"/>
                                             <constraint firstAttribute="width" constant="600" id="qUn-aI-PcX"/>
-                                            <constraint firstItem="Wsa-Mc-D9E" firstAttribute="top" secondItem="h8h-R4-v2s" secondAttribute="top" constant="32" id="yhl-S9-HOl"/>
+                                            <constraint firstItem="Wsa-Mc-D9E" firstAttribute="top" secondItem="h8h-R4-v2s" secondAttribute="top" constant="35" id="yhl-S9-HOl"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -433,54 +436,6 @@
             </objects>
             <point key="canvasLocation" x="1277" y="833"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="7fk-0J-N8K">
-            <objects>
-                <viewController id="j5D-bS-emu" customClass="ViewController" customModule="Weavr" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZHE-c1-eli"/>
-                        <viewControllerLayoutGuide type="bottom" id="STV-0o-JBn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FC5-nb-nic">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GtQ-md-x7x">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="is7-xQ-eXG">
-                                <rect key="frame" x="20" y="40" width="19" height="18"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="burger"/>
-                                <connections>
-                                    <action selector="onBurger" destination="j5D-bS-emu" eventType="touchUpInside" id="0Sg-vK-b4g"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Controller 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxO-O2-uqr">
-                                <rect key="frame" x="234" y="289" width="132" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="OxO-O2-uqr" secondAttribute="centerX" id="6I3-8m-zwG"/>
-                            <constraint firstAttribute="bottom" secondItem="GtQ-md-x7x" secondAttribute="bottom" id="6Jg-xP-WeL"/>
-                            <constraint firstItem="GtQ-md-x7x" firstAttribute="leading" secondItem="FC5-nb-nic" secondAttribute="leading" id="KsO-dD-Acu"/>
-                            <constraint firstAttribute="centerY" secondItem="OxO-O2-uqr" secondAttribute="centerY" id="hhz-ZS-Ni6"/>
-                            <constraint firstItem="is7-xQ-eXG" firstAttribute="leading" secondItem="FC5-nb-nic" secondAttribute="leading" constant="20" id="uSz-4m-dhT"/>
-                            <constraint firstAttribute="trailing" secondItem="GtQ-md-x7x" secondAttribute="trailing" id="vTP-3a-KWb"/>
-                            <constraint firstItem="GtQ-md-x7x" firstAttribute="top" secondItem="FC5-nb-nic" secondAttribute="top" id="xN4-sf-Dzv"/>
-                            <constraint firstItem="is7-xQ-eXG" firstAttribute="top" secondItem="ZHE-c1-eli" secondAttribute="bottom" constant="20" id="zLW-jM-B9Z"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="YUj-YM-ftx"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V5e-e7-PEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1277" y="1498"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6Ie-Xz-3lW">
             <objects>
@@ -495,7 +450,6 @@
                         <segue destination="yFd-Pw-cF0" kind="relationship" relationship="viewControllers" id="eca-4k-YIE"/>
                         <segue destination="wsn-Gr-6uq" kind="relationship" relationship="viewControllers" id="LdG-Bb-BD6"/>
                         <segue destination="VA2-Zc-qCQ" kind="relationship" relationship="viewControllers" id="J7P-wG-Q9u"/>
-                        <segue destination="j5D-bS-emu" kind="relationship" relationship="viewControllers" id="Z6R-od-pNi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHs-JP-c1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
