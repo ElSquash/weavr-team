@@ -10,11 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-    @IBOutlet weak var scrollView: UIScrollView!
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        scrollView.contentSize.height = 1000
+        //scrollView.contentSize.height = 1000
 	}
 	
 	@IBAction func onBurger() {
