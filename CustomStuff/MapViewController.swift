@@ -19,8 +19,6 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.contentSize.height = 1000
         
-        self.hidesBottomBarWhenPushed = true
-
         // Do any additional setup after loading the view.
     }
 

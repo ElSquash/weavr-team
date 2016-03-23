@@ -36,8 +36,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         sidebar.showFromRight = true
         sidebar.adjustForNavigationBar = true
         
-        //print("working")
 	}
+    
+    
     
 	
 }
