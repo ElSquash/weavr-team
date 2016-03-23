@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background-blue.gif" translatesAutoresizingMaskIntoConstraints="NO" id="8Kj-cU-rlS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue_green_backround.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Kj-cU-rlS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fw-iw-ffC">
@@ -505,7 +505,7 @@
     </scenes>
     <resources>
         <image name="Background.jpg" width="63" height="111"/>
-        <image name="background-blue.gif" width="600" height="600"/>
+        <image name="blue_green_backround.jpg" width="600" height="600"/>
         <image name="burger" width="19" height="17"/>
         <image name="no-profile-pic" width="150" height="150"/>
     </resources>
