@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="profileBackground.gif" translatesAutoresizingMaskIntoConstraints="NO" id="aXT-I8-4Vl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background-blue.gif" translatesAutoresizingMaskIntoConstraints="NO" id="8Kj-cU-rlS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fw-iw-ffC">
@@ -70,16 +70,16 @@
                                                 <color key="tintColor" red="0.67764423076923075" green="0.0" blue="0.57983974572003194" alpha="1" colorSpace="calibratedRGB"/>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaving: 30 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfB-8W-923">
-                                                <rect key="frame" x="13" y="306" width="89" height="14"/>
+                                                <rect key="frame" x="13" y="307" width="89" height="13"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-sp-BHt">
-                                                <rect key="frame" x="13" y="371" width="575" height="200"/>
-                                                <color key="backgroundColor" white="1" alpha="0.1949353448275862" colorSpace="calibratedWhite"/>
+                                                <rect key="frame" x="13" y="372" width="575" height="175"/>
+                                                <color key="backgroundColor" red="1" green="0.81882005495884236" blue="0.9707088545855499" alpha="0.63650323275862064" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="kbc-3g-t5v"/>
+                                                    <constraint firstAttribute="height" constant="175" id="kbc-3g-t5v"/>
                                                 </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -92,13 +92,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me Today:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDa-Di-ZN3">
-                                                <rect key="frame" x="260" y="326" width="80" height="21"/>
+                                                <rect key="frame" x="261" y="326" width="80" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◉ twitch.tv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvx-Yu-9cC">
-                                                <rect key="frame" x="121" y="203" width="87" height="21"/>
+                                                <rect key="frame" x="121" y="204" width="87" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -180,13 +180,9 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="leading" secondItem="X4b-dZ-l1O" secondAttribute="leadingMargin" constant="-20" id="00o-jh-0zW"/>
-                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="top" secondItem="28J-8P-oJS" secondAttribute="bottom" constant="-20" id="26b-9l-M3o"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="centerY" secondItem="X4b-dZ-l1O" secondAttribute="centerY" id="2mJ-i1-RvN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aXT-I8-4Vl" secondAttribute="trailing" constant="-20" id="309-me-8Nt"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="centerX" secondItem="X4b-dZ-l1O" secondAttribute="centerX" id="7N9-m3-xbT"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="bottom" secondItem="AhR-c2-Zoo" secondAttribute="top" id="F0k-sQ-bsf"/>
-                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="centerX" secondItem="X4b-dZ-l1O" secondAttribute="centerX" id="GeF-kB-dKa"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="top" secondItem="28J-8P-oJS" secondAttribute="bottom" constant="-20" id="KcP-33-ccR"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="height" secondItem="X4b-dZ-l1O" secondAttribute="height" id="MyR-2P-HRK"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="centerY" secondItem="X4b-dZ-l1O" secondAttribute="centerY" id="Pg8-pA-wwC"/>
@@ -195,9 +191,7 @@
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="width" secondItem="X4b-dZ-l1O" secondAttribute="width" id="fFc-pb-aDU"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="width" secondItem="X4b-dZ-l1O" secondAttribute="width" id="ird-2d-B7L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6fw-iw-ffC" secondAttribute="trailing" constant="-20" id="nl6-4A-s1a"/>
-                            <constraint firstItem="AhR-c2-Zoo" firstAttribute="top" secondItem="aXT-I8-4Vl" secondAttribute="bottom" id="pAa-n8-W2C"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="centerX" secondItem="X4b-dZ-l1O" secondAttribute="centerX" id="uqB-ex-X2A"/>
-                            <constraint firstItem="aXT-I8-4Vl" firstAttribute="centerY" secondItem="X4b-dZ-l1O" secondAttribute="centerY" id="xM1-Ou-ouW"/>
                             <constraint firstItem="6fw-iw-ffC" firstAttribute="height" secondItem="X4b-dZ-l1O" secondAttribute="height" id="xoG-vc-6dZ"/>
                         </constraints>
                         <variation key="default">
@@ -210,8 +204,6 @@
                                 <exclude reference="nl6-4A-s1a"/>
                                 <exclude reference="uqB-ex-X2A"/>
                                 <exclude reference="xoG-vc-6dZ"/>
-                                <exclude reference="309-me-8Nt"/>
-                                <exclude reference="pAa-n8-W2C"/>
                             </mask>
                         </variation>
                     </view>
@@ -513,8 +505,8 @@
     </scenes>
     <resources>
         <image name="Background.jpg" width="63" height="111"/>
+        <image name="background-blue.gif" width="600" height="600"/>
         <image name="burger" width="19" height="17"/>
         <image name="no-profile-pic" width="150" height="150"/>
-        <image name="profileBackground.gif" width="1866" height="1179"/>
     </resources>
 </document>
