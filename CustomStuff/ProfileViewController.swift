@@ -12,9 +12,19 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var userName: UILabel!
     
+    @IBOutlet weak var metStarsBlocked: UISegmentedControl!
+    
     @IBOutlet weak var profile_pic: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var leavingLabel: UILabel!
+    
+    @IBOutlet weak var userWords: UITextView!
+    
+    var ownerTopics = [String]()
 
 
     override func viewDidLoad() {
@@ -22,7 +32,6 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         scrollView.contentSize.height = 1000
-        
     }
     
     override func viewDidLayoutSubviews() {

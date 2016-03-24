@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		028A97981CA461D50073E779 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A97971CA461D50073E779 /* User.swift */; };
 		02F64D221C92299800160248 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F64D211C92299800160248 /* ProfileViewController.swift */; };
 		02F64D2E1CA1AB9B00160248 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F64D2D1CA1AB9B00160248 /* MapViewController.swift */; };
 		02FE89DF1CA24A1900D400E8 /* blue_green_backround.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02FE89DE1CA24A1900D400E8 /* blue_green_backround.jpg */; };
+		02FE89E11CA3617D00D400E8 /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = 02FE89E01CA3617D00D400E8 /* PublicArt.json */; };
+		02FE89E31CA3633F00D400E8 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE89E21CA3633F00D400E8 /* Artwork.swift */; };
+		02FE89E51CA3663D00D400E8 /* MapViewDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE89E41CA3663D00D400E8 /* MapViewDelagate.swift */; };
+		02FE89E71CA382E000D400E8 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE89E61CA382E000D400E8 /* JSON.swift */; };
+		02FE89E91CA4553500D400E8 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE89E81CA4553500D400E8 /* UserViewController.swift */; };
 		2008D69D197021D300B89D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2008D69B197021D300B89D6C /* AppDelegate.swift */; };
 		2008D69E197021D300B89D6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2008D69C197021D300B89D6C /* ViewController.swift */; };
 		2008D6A01970223100B89D6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2008D69F1970223100B89D6C /* Main.storyboard */; };
@@ -32,9 +38,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		028A97971CA461D50073E779 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		02F64D211C92299800160248 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		02F64D2D1CA1AB9B00160248 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		02FE89DE1CA24A1900D400E8 /* blue_green_backround.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = blue_green_backround.jpg; path = FrostedSidebar/blue_green_backround.jpg; sourceTree = SOURCE_ROOT; };
+		02FE89E01CA3617D00D400E8 /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
+		02FE89E21CA3633F00D400E8 /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		02FE89E41CA3663D00D400E8 /* MapViewDelagate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelagate.swift; sourceTree = "<group>"; };
+		02FE89E61CA382E000D400E8 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		02FE89E81CA4553500D400E8 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		2008D69B197021D300B89D6C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FrostedSidebar/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		2008D69C197021D300B89D6C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = FrostedSidebar/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		2008D69F1970223100B89D6C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = FrostedSidebar/Main.storyboard; sourceTree = SOURCE_ROOT; };
@@ -89,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				02F64D2D1CA1AB9B00160248 /* MapViewController.swift */,
+				02FE89E81CA4553500D400E8 /* UserViewController.swift */,
+				02FE89E41CA3663D00D400E8 /* MapViewDelagate.swift */,
 				2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */,
 				02F64D211C92299800160248 /* ProfileViewController.swift */,
 				20A1FAD819B4B1CE00208E92 /* TabBarController.swift */,
@@ -106,6 +120,10 @@
 		208E5DF1196DBE6F005653B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02FE89E61CA382E000D400E8 /* JSON.swift */,
+				02FE89E01CA3617D00D400E8 /* PublicArt.json */,
+				028A97971CA461D50073E779 /* User.swift */,
+				02FE89E21CA3633F00D400E8 /* Artwork.swift */,
 				02FE89DE1CA24A1900D400E8 /* blue_green_backround.jpg */,
 				20B553AF19701F1F006165BF /* Background.jpg */,
 				20B553B019701F1F006165BF /* burger.png */,
@@ -194,6 +212,7 @@
 				20B553C419701F1F006165BF /* globe.png in Resources */,
 				20B553C119701F1F006165BF /* click.gif in Resources */,
 				20B553BE19701F1F006165BF /* Background.jpg in Resources */,
+				02FE89E11CA3617D00D400E8 /* PublicArt.json in Resources */,
 				2008D6A61970231B00B89D6C /* Images.xcassets in Resources */,
 				20B553C319701F1F006165BF /* gear@2x.png in Resources */,
 				20B553CC19701F1F006165BF /* star@2x.png in Resources */,
@@ -209,12 +228,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FE89E51CA3663D00D400E8 /* MapViewDelagate.swift in Sources */,
+				02FE89E91CA4553500D400E8 /* UserViewController.swift in Sources */,
 				2008D69E197021D300B89D6C /* ViewController.swift in Sources */,
 				02F64D2E1CA1AB9B00160248 /* MapViewController.swift in Sources */,
+				02FE89E71CA382E000D400E8 /* JSON.swift in Sources */,
+				02FE89E31CA3633F00D400E8 /* Artwork.swift in Sources */,
 				20A1FAD919B4B1CE00208E92 /* TabBarController.swift in Sources */,
 				02F64D221C92299800160248 /* ProfileViewController.swift in Sources */,
 				2008D69D197021D300B89D6C /* AppDelegate.swift in Sources */,
 				2066AEA3196DC14A001EE855 /* FrostedSidebar.swift in Sources */,
+				028A97981CA461D50073E779 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
