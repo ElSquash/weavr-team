@@ -12,24 +12,28 @@ import MapKit
 
 class User: NSObject, MKAnnotation {
     let userName: String
+    let firstName: String
+    let lastName: String
     let metNumber: String
     let starsNumber: String
     let blockedNumber: String
     let profile_pic: UIImage
     let locationName: String
-    let leavingIn: String
+    let leavingAt: String
     let userWords: String
     let coordinate: CLLocationCoordinate2D
     
-    init(userName: String, metNumber: String, starsNumber: String, blockedNumber: String, profile_pic: UIImage, locationName: String, leavingIn: String, userWords: String, coordinate: CLLocationCoordinate2D) {
+    init(userName: String, firstName: String, lastName: String, metNumber: String, starsNumber: String, blockedNumber: String, profile_pic: UIImage, locationName: String, leavingAt: String, userWords: String, coordinate: CLLocationCoordinate2D) {
 
         self.userName = userName
+        self.firstName = firstName
+        self.lastName = lastName
         self.metNumber = metNumber
         self.starsNumber = starsNumber
         self.blockedNumber = blockedNumber
         self.profile_pic = profile_pic
         self.locationName = locationName
-        self.leavingIn = leavingIn
+        self.leavingAt = leavingAt
         self.userWords = userWords
         self.coordinate = coordinate
         

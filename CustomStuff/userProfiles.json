@@ -1,0 +1,10 @@
+{
+	"users": [
+
+		{"userName":"Iron Man", "firstName":"Tony", "lastName":"Stark", "metNumber":35, "starsNumber":32, "blockedNumber":1, "profile_pic":"/filepath/of/photo/on/server", "locationName":"Starbucks", "leavingAt": "10:30AM", "userWords": "I like to eat cheese, mmmmmmmh mozerella!", "latitude":"21.290824", "longitude":"-157.85131"}, {"userName":"John Stuart", "firstName":"John", "lastName":"Stuart", "metNumber":200, "starsNumber":180, "blockedNumber":3, "profile_pic":"/filepath/of/photo/on/server", "locationName":"Panera", "leavingAt": "3:30PM", "userWords": "What I really like to tell people, especially today, is that you are lucky to be alive. Because without that amazing thing on the forefront of my mind, I think people go crazy. Like me.", "latitude":"21.273389", "longitude":"-157.823802"}
+
+		]
+
+
+
+}

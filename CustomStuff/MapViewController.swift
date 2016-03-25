@@ -33,6 +33,7 @@ class MapViewController: UIViewController {
         
         loadInitialData()
         userMap.addAnnotations(artworks)
+        loadInitialUsers()
         
         // Do any additional setup after loading the view.
     }
@@ -93,6 +94,48 @@ class MapViewController: UIViewController {
                     }
                 }
         }
+        
+    }
+    
+    // Load initial user profile samples from local json file userProfiles, modeled after the properties of the ProfileViewController
+    func loadInitialUsers() {
+        
+        let fileName = NSBundle.mainBundle().pathForResource("userProfiles", ofType:"json")
+        var data: NSData!
+        var readError: ErrorType?
+        var jsonObject: AnyObject!
+        
+        do {
+            data = try NSData(contentsOfFile: fileName!, options: NSDataReadingOptions(rawValue: 0))
+            
+        } catch {
+            readError = error
+            print("Could not get raw data from file: \(readError)")
+        }
+        
+        var jsonError: ErrorType?
+        do {
+            
+            jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue:0))
+            
+        } catch {
+            jsonError = error
+            print("Could not turn data into JSON object: \(jsonError)")
+        }
+        
+        if let jsonObject = jsonObject as? [String : AnyObject] where jsonError == nil,
+        
+            let jsonUserData = JSONValue.fromObject(jsonObject)?["users"]?.array {
+                
+                for _ in jsonUserData {
+                    
+                    print("Got a user")
+                    
+                    //Need to copy functionality of above, where the fromJSON method is called, and each new User Annotation is added to a "users" array (like above)
+                    
+                }
+        }
+        
         
     }
 
