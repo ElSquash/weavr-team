@@ -18,12 +18,15 @@ class User: NSObject, MKAnnotation {
     let starsNumber: String
     let blockedNumber: String
     let profile_pic: UIImage
+    let topicOne: String
+    let topicTwo: String
+    let topicThree: String
     let locationName: String
     let leavingAt: String
     let userWords: String
     let coordinate: CLLocationCoordinate2D
     
-    init(userName: String, firstName: String, lastName: String, metNumber: String, starsNumber: String, blockedNumber: String, profile_pic: UIImage, locationName: String, leavingAt: String, userWords: String, coordinate: CLLocationCoordinate2D) {
+    init(userName: String, firstName: String, lastName: String, metNumber: String, starsNumber: String, blockedNumber: String, topicOne: String, topicTwo: String, topicThree: String, profile_pic: UIImage, locationName: String, leavingAt: String, userWords: String, coordinate: CLLocationCoordinate2D) {
 
         self.userName = userName
         self.firstName = firstName
@@ -31,6 +34,9 @@ class User: NSObject, MKAnnotation {
         self.metNumber = metNumber
         self.starsNumber = starsNumber
         self.blockedNumber = blockedNumber
+        self.topicOne = topicOne
+        self.topicTwo = topicTwo
+        self.topicThree = topicThree
         self.profile_pic = profile_pic
         self.locationName = locationName
         self.leavingAt = leavingAt
@@ -40,34 +46,72 @@ class User: NSObject, MKAnnotation {
         super.init()
     }
     
-    /*
-    class func fromJSON(json: [JSONValue]) -> User? {
+    //This takes a dictonary of Json values (aka a User JSON object) and extracts all the required values
+    class func fromJSON(json: [String: JSONValue]) -> User? {
         
-        // 1
-        var title: String
+        var tempUserName: String
+        var tempMetNumber: Int
+        var tempStarsNumber: Int
+        var tempBlockedNumber: Int
+        var tempTopicOne: String
+        var tempTopicTwo: String
+        var tempTopicThree: String
+        var tempLocName: String
+        var tempLat: Double
+        var tempLong: Double
         
-        if let titleOrNil = json[16].string {
-            title = titleOrNil
-        }
-        else {
+        //get User Name from JSON user object
+        tempUserName = json["userName"]!.string!
+        
+        
+        //get Met Number from JSON user Object
+        tempMetNumber = json["metNumber"]!.integer!
             
-            title = ""
-        }
         
-        let locationName = json[12].string
-        let discipline = json[15].string
         
-        // 2
-        let latitude = (json[18].string! as NSString).doubleValue
-        let longitude = (json[19].string! as NSString).doubleValue
-        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        //get Stars Number from JSON user Object
+        tempStarsNumber = json["starsNumber"]!.integer!
         
-        // 3
-        return User(
+        
+        //get Blocked Number from JSON user Object
+        tempBlockedNumber = json["blockedNumber"]!.integer!
+        
+        
+        //get Topic One from JSON user Object
+        tempTopicOne = json["topicOne"]!.string!
+        
+        
+        //get Topic Two from JSON user Object
+        tempTopicTwo = json["topicTwo"]!.string!
+        
+        
+        //get Topic Three from JSON user Object
+        tempTopicThree = json["topicThree"]!.string!
+        
+        
+        //get Location Name from JSON user Object
+        tempLocName = json["locationName"]!.string!
+        
+        //get Latitude from JSON user Object
+        tempLat = (json["latitude"]!.string! as NSString).doubleValue
+        
+        //get Longitude from JSON user Object
+        tempLong = (json["longitude"]!.string! as NSString).doubleValue
+        
+        
+        return User(userName: tempUserName, firstName: "testFirst", lastName: "testLast", metNumber: String(tempMetNumber),starsNumber: String(tempStarsNumber), blockedNumber: String(tempBlockedNumber), topicOne: tempTopicOne, topicTwo: tempTopicTwo, topicThree: tempTopicThree, profile_pic: UIImage(named:"no-profile-pic")!, locationName: tempLocName, leavingAt: "two", userWords: "Testing 123", coordinate: CLLocationCoordinate2D(latitude: tempLat, longitude: tempLong))
+        
         
     }
-    */
     
+    //This is to compensate for the MKAnnotation title and subtitle properties needed in order to show a callout for a pin
+    
+    var title: String? {
+        
+        return userName
+    }
+    
+
     var subtitle: String? {
         return locationName
     }

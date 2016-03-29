@@ -24,8 +24,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var userWords: UITextView!
     
-    var ownerTopics = [String]()
-
+    var userDetails : User?
 
     override func viewDidLoad() {
         super.viewDidLoad()

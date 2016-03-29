@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     
     let regionRadius: CLLocationDistance = 2000
     var artworks = [Artwork]()
+    var users = [User]()
     
 
     override func viewDidLoad() {
@@ -33,9 +34,10 @@ class MapViewController: UIViewController {
         
         loadInitialData()
         userMap.addAnnotations(artworks)
-        loadInitialUsers()
         
-        // Do any additional setup after loading the view.
+        // This is where the sample file of users is parsed, and the User annotations are created and added to an array
+        loadInitialUsers()
+        userMap.addAnnotations(users)
     }
     
     
@@ -127,12 +129,16 @@ class MapViewController: UIViewController {
         
             let jsonUserData = JSONValue.fromObject(jsonObject)?["users"]?.array {
                 
-                for _ in jsonUserData {
+                // I have an array of JSON objects, each on is a user.
+                for userJSON in jsonUserData {
                     
-                    print("Got a user")
+                    if let userJSON = userJSON.object,
+                        user = User.fromJSON(userJSON) {
+                            users.append(user)
+                            print("\(user.topicOne)")
+                        }
                     
-                    //Need to copy functionality of above, where the fromJSON method is called, and each new User Annotation is added to a "users" array (like above)
-                    
+                                        
                 }
         }
         

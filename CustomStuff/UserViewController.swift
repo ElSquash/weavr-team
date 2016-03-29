@@ -14,9 +14,8 @@ import UIKit
 // Right now using the Artwork class instead, need to wait until a JSON file is written containing some User Profiles
 // Also need to finish the User class...then we can finish this View Controller.
 
-class UserViewController: UIViewController {
+class UserViewController: ProfileViewController {
 
-    @IBOutlet weak var userName: UILabel!
     
     var pieceOfArt : Artwork?
     
@@ -24,12 +23,23 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Just testing this information, really need to actually implement the rest of the user's data that was selected
+        
         if pieceOfArt != nil {
             
             userName.text? = pieceOfArt!.title!
-        }
+            locationLabel.text? = pieceOfArt!.locationName
 
-        // Do any additional setup after loading the view.
+        }
+        else if userDetails != nil {
+            
+            userName.text? = userDetails!.userName
+            locationLabel.text? = userDetails!.locationName
+            
+            print("Implement rest of details here")
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
