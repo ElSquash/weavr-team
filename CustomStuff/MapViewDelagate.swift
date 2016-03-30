@@ -52,7 +52,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             
-            performSegueWithIdentifier("showArtworkDetail", sender: view)
+            performSegueWithIdentifier("showUserDetails", sender: view)
         }
     }
     

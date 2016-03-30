@@ -57,6 +57,8 @@ class User: NSObject, MKAnnotation {
         var tempTopicTwo: String
         var tempTopicThree: String
         var tempLocName: String
+        var tempLeavingAt: String
+        var tempUserWords: String
         var tempLat: Double
         var tempLong: Double
         
@@ -92,6 +94,14 @@ class User: NSObject, MKAnnotation {
         //get Location Name from JSON user Object
         tempLocName = json["locationName"]!.string!
         
+        
+        //get Leaving Time from JSON user Object
+        tempLeavingAt = json["leavingAt"]!.string!
+        
+        //get User Words from JSON user Object
+        tempUserWords = json["userWords"]!.string!
+        
+        
         //get Latitude from JSON user Object
         tempLat = (json["latitude"]!.string! as NSString).doubleValue
         
@@ -99,7 +109,7 @@ class User: NSObject, MKAnnotation {
         tempLong = (json["longitude"]!.string! as NSString).doubleValue
         
         
-        return User(userName: tempUserName, firstName: "testFirst", lastName: "testLast", metNumber: String(tempMetNumber),starsNumber: String(tempStarsNumber), blockedNumber: String(tempBlockedNumber), topicOne: tempTopicOne, topicTwo: tempTopicTwo, topicThree: tempTopicThree, profile_pic: UIImage(named:"no-profile-pic")!, locationName: tempLocName, leavingAt: "two", userWords: "Testing 123", coordinate: CLLocationCoordinate2D(latitude: tempLat, longitude: tempLong))
+        return User(userName: tempUserName, firstName: "testFirst", lastName: "testLast", metNumber: String(tempMetNumber),starsNumber: String(tempStarsNumber), blockedNumber: String(tempBlockedNumber), topicOne: tempTopicOne, topicTwo: tempTopicTwo, topicThree: tempTopicThree, profile_pic: UIImage(named:"no-profile-pic")!, locationName: tempLocName, leavingAt: tempLeavingAt, userWords: tempUserWords, coordinate: CLLocationCoordinate2D(latitude: tempLat, longitude: tempLong))
         
         
     }

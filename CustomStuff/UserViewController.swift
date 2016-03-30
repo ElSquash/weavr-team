@@ -25,7 +25,25 @@ class UserViewController: ProfileViewController {
         if userDetails != nil {
             
             userName.text? = userDetails!.userName
-            locationLabel.text? = userDetails!.locationName
+            
+            metStarsBlocked.setTitle("Met " + userDetails!.metNumber, forSegmentAtIndex: 0)
+            metStarsBlocked.setTitle("Stars " + userDetails!.starsNumber, forSegmentAtIndex: 1)
+            metStarsBlocked.setTitle("Blocked " + userDetails!.blockedNumber, forSegmentAtIndex: 2)
+            
+            // Need to add profile picture here eventually
+            
+            print("\(userDetails!.topicOne)")
+            
+            topicOneLabel.text? = "◉ " + userDetails!.topicOne
+            topicTwoLabel.text? = "◉ " + userDetails!.topicTwo
+            topicThreeLabel.text? = "◉ " + userDetails!.topicThree
+            
+            
+            locationLabel.text? = "At: " + userDetails!.locationName
+            
+            leavingLabel.text? = "Until: " + userDetails!.leavingAt
+            
+            userWords.text? = userDetails!.userWords
             
             print("Implement rest of details here")
             

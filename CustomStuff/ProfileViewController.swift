@@ -18,6 +18,12 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var topicOneLabel: UILabel!
+    
+    @IBOutlet weak var topicTwoLabel: UILabel!
+    
+    @IBOutlet weak var topicThreeLabel: UILabel!
+    
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var leavingLabel: UILabel!
