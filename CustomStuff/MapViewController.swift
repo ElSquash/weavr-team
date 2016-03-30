@@ -13,6 +13,9 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var userMap: MKMapView!
     
+    // MARK: - location manager to authorize user location for Maps app
+    var locationManager = CLLocationManager()
+    
     let regionRadius: CLLocationDistance = 2000
     var artworks = [Artwork]()
     var users = [User]()
@@ -22,15 +25,19 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         userMap.delegate = self
+        locationManager.delegate = self
         
-        // Set initial location for userMap
-        let initialLocation = CLLocation(latitude:21.282778, longitude: -157.829444)
+        // Set up the preliminary settings for user location
         
-        centerMapOnLocation(initialLocation)
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        // Show sample Artwork on the map
-        //let artwork = Artwork(title: "King David Kalakaua", locationName: "Waikiki Gateway Park", discipline: "Sculpture", coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-        //userMap.addAnnotation(artwork)
+        locationManager.requestWhenInUseAuthorization()
+        print("Got here")
+        locationManager.startUpdatingLocation()
+        
+        userMap.showsUserLocation = true
+        
+        // Load fake JSON data
         
         loadInitialData()
         userMap.addAnnotations(artworks)
@@ -41,12 +48,10 @@ class MapViewController: UIViewController {
     }
     
     
-    func centerMapOnLocation(location: CLLocation) {
-        
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        
-        userMap.setRegion(coordinateRegion, animated:true)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

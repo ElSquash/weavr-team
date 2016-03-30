@@ -115,4 +115,13 @@ class User: NSObject, MKAnnotation {
     var subtitle: String? {
         return locationName
     }
+    
+    
+    
+    // set a custom pin color
+    func pinColor() -> MKPinAnnotationColor  {
+        
+        return .Purple
+        
+    }
 }

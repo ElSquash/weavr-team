@@ -10,7 +10,7 @@ import Foundation
 
 import MapKit
 
-extension MapViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     // 1
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -62,6 +62,9 @@ extension MapViewController: MKMapViewDelegate {
                 
                 view.leftCalloutAccessoryView = UIImageView(image: UIImage(named:"no-profile-pic"))
                 view.leftCalloutAccessoryView!.frame = CGRectMake(0.0, 0.0, 55.0, 55.0)
+                
+                // Set a custom color for the user pin
+                view.pinColor = annotation.pinColor()
             }
             return view
 
@@ -77,6 +80,36 @@ extension MapViewController: MKMapViewDelegate {
             performSegueWithIdentifier("showArtworkDetail", sender: view)
         }
     }
+    
+    
+    // Implement delegate methods for CLLocationManager Delegate
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+        print("Error finding location: \(error.localizedDescription)")
+
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print("Being Called")
+        
+        let location = locations.last
+        
+        // This will give us a
+        let regionRadius: CLLocationDistance = 2000
+        
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        
+        let region = MKCoordinateRegionMakeWithDistance(center, regionRadius, regionRadius)
+        
+        userMap.setRegion(region, animated: true)
+        
+        locationManager.stopUpdatingLocation()
+    
+    }
+    
     
     // Get alllll the information needed from the Annotation of the pin (the user)
     //Right now I am using Artwork, AND User but eventually will be using only the User class of type MKAnnotation
@@ -105,8 +138,6 @@ extension MapViewController: MKMapViewDelegate {
             }
         }
     }
-    
-    
     
     
 }
