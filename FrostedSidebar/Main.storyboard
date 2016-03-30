@@ -518,9 +518,9 @@
                                                 <exclude reference="7af-2Y-aZx"/>
                                                 <exclude reference="g1I-Rb-BIg"/>
                                                 <exclude reference="o3f-Se-LTW"/>
-                                                <exclude reference="jnD-Td-oRg"/>
                                                 <exclude reference="1HD-a5-o4u"/>
                                                 <exclude reference="I9I-My-58u"/>
+                                                <exclude reference="jnD-Td-oRg"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -562,24 +562,18 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="iLS-vV-II3"/>
-                                <exclude reference="yb2-br-R6c"/>
-                                <exclude reference="Ia8-Mc-vJs"/>
-                                <exclude reference="yJ7-YW-wMa"/>
-                                <exclude reference="UdI-36-iIR"/>
-                                <exclude reference="lrT-Xx-YJC"/>
                                 <exclude reference="Aqi-k1-t0R"/>
+                                <exclude reference="Ia8-Mc-vJs"/>
                                 <exclude reference="SPz-SD-NC5"/>
+                                <exclude reference="UdI-36-iIR"/>
+                                <exclude reference="iLS-vV-II3"/>
+                                <exclude reference="lrT-Xx-YJC"/>
+                                <exclude reference="yJ7-YW-wMa"/>
+                                <exclude reference="yb2-br-R6c"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="2ml-6p-eVW">
-                        <barButtonItem key="rightBarButtonItem" image="burger" id="qDI-Fh-ZYO">
-                            <connections>
-                                <action selector="onBurger" destination="fwe-Wr-a3C" id="2fB-4R-iSM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="2ml-6p-eVW"/>
                     <connections>
                         <outlet property="leavingLabel" destination="GCL-BO-uLh" id="wKO-oH-KvJ"/>
                         <outlet property="locationLabel" destination="Yqx-0r-GSf" id="oFe-Y1-bGd"/>
