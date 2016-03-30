@@ -12,36 +12,11 @@ import MapKit
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
-    // 1
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? Artwork {
-            
-            let identifier = "artworkPin"
-            var view: MKPinAnnotationView
-            
-            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {
-             
-                // 2
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-                
-            }
-            else {
-                // 3
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y:5)
-                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
-                
-                view.leftCalloutAccessoryView = UIButton(type: .ContactAdd) as UIView
 
-                
-            }
-            return view
-        }
-            
         // Added the ability to create annotations of custom type User, just like Artwork above
-        else if let annotation = annotation as? User {
+        if let annotation = annotation as? User {
             
             let identifier1 = "userPin"
             var view: MKPinAnnotationView
@@ -93,7 +68,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print("Being Called")
+        print("User Location Was updated")
         
         let location = locations.last
         
@@ -117,7 +92,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         
         let identifier = segue.identifier
         
-        if identifier == "showArtworkDetail" {
+        if identifier == "showUserDetails" {
             
             if let vc = segue.destinationViewController as? UserViewController {
                 
@@ -125,11 +100,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
                 
                 if thePin != nil {
                     
-                    if let artwork = thePin?.annotation as? Artwork {
-                    
-                        vc.pieceOfArt = artwork
-                    }
-                    else if let userProfile = thePin?.annotation as? User{
+                    if let userProfile = thePin?.annotation as? User{
                         
                         vc.userDetails = userProfile
                         

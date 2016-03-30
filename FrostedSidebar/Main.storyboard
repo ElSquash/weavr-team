@@ -244,7 +244,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="userMap" destination="W8w-eF-o2G" id="ZsW-pr-IC1"/>
-                        <segue destination="iA5-pb-J1V" kind="show" identifier="showArtworkDetail" id="p6W-dJ-hIN"/>
+                        <segue destination="iA5-pb-J1V" kind="show" identifier="showUserDetails" id="p6W-dJ-hIN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MC-Dr-mNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
