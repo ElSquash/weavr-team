@@ -283,6 +283,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZa-eg-Cf7">
+                                <rect key="frame" x="235" y="319" width="130" height="30"/>
+                                <state key="normal" title="Sample Messaging"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -291,7 +295,9 @@
                             <constraint firstAttribute="centerX" secondItem="ygk-EM-vOX" secondAttribute="centerX" id="DDR-cZ-UdU"/>
                             <constraint firstAttribute="centerY" secondItem="ygk-EM-vOX" secondAttribute="centerY" id="DTV-Qb-3W6"/>
                             <constraint firstAttribute="trailing" secondItem="Kgs-SL-9NA" secondAttribute="trailing" id="Ptf-6E-4D1"/>
+                            <constraint firstItem="kZa-eg-Cf7" firstAttribute="top" secondItem="ygk-EM-vOX" secondAttribute="bottom" constant="8" id="iP1-8I-CNT"/>
                             <constraint firstAttribute="bottom" secondItem="Kgs-SL-9NA" secondAttribute="bottom" id="kU2-2G-ws1"/>
+                            <constraint firstItem="kZa-eg-Cf7" firstAttribute="centerX" secondItem="Kgs-SL-9NA" secondAttribute="centerX" id="lqI-tW-ZnP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l5v-6L-J2y">
