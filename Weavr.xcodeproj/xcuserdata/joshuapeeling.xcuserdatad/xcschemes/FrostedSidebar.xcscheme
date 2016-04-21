@@ -64,7 +64,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "../../CustomStuff/LewisLab.gpx"
+         identifier = "../CustomStuff/LewisLab.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>

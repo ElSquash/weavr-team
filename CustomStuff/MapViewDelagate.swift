@@ -39,7 +39,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
                 view.leftCalloutAccessoryView!.frame = CGRectMake(0.0, 0.0, 55.0, 55.0)
                 
                 // Set a custom color for the user pin
-                view.pinColor = annotation.pinColor()
+                view.pinTintColor = annotation.pinColor()
             }
             return view
 

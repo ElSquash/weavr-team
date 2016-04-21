@@ -1,0 +1,19 @@
+PODS:
+  - TwilioCommon (0.1.10)
+  - TwilioIPMessagingClient (0.13.5)
+
+DEPENDENCIES:
+  - TwilioCommon (from `https://media.twiliocdn.com/sdk/rtc/ios/common/v0.1/TwilioCommon.podspec`)
+  - TwilioIPMessagingClient (from `https://media.twiliocdn.com/sdk/rtc/ios/ip-messaging/v0.13/TwilioIPMessagingClient.podspec`)
+
+EXTERNAL SOURCES:
+  TwilioCommon:
+    :podspec: https://media.twiliocdn.com/sdk/rtc/ios/common/v0.1/TwilioCommon.podspec
+  TwilioIPMessagingClient:
+    :podspec: https://media.twiliocdn.com/sdk/rtc/ios/ip-messaging/v0.13/TwilioIPMessagingClient.podspec
+
+SPEC CHECKSUMS:
+  TwilioCommon: 0c1b601770d3431453a979e8a0794313e99f9317
+  TwilioIPMessagingClient: 97f2f8aa7fdcab675db51a0d77850492a3ba63f1
+
+COCOAPODS: 0.39.0

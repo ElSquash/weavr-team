@@ -129,9 +129,9 @@ class User: NSObject, MKAnnotation {
     
     
     // set a custom pin color
-    func pinColor() -> MKPinAnnotationColor  {
+    func pinColor() -> UIColor  {
         
-        return .Purple
+        return UIColor.purpleColor()
         
     }
 }

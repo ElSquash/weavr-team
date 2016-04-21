@@ -22,7 +22,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 		sidebar = FrostedSidebar(itemImages: [
 			UIImage(named: "profile")!,
 			UIImage(named: "globe")!,
-			UIImage(named: "profile")!],
+			UIImage(named: "messages")!],
 			colors: [
 				UIColor(red: 53/255, green: 213/255, blue: 234/255, alpha: 1),
 				UIColor(red: 255/255, green: 137/255, blue: 167/255, alpha: 1),
