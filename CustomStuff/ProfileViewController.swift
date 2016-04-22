@@ -31,6 +31,86 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var userWords: UITextView!
     
     var userDetails : User?
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        // Check NSUserDefaults for a "currentToken" to access the server with...
+        let prefs = NSUserDefaults.standardUserDefaults()
+        
+        // Use below line for testing, if you need to remove the current token
+        //prefs.removeObjectForKey("currentToken")
+        
+        if let currentToken = prefs.stringForKey("currentToken"){
+            
+            let urlString = "http://localhost:8000/api/getWeavrUsers?token=" + currentToken
+            var message = "foo"
+            
+            // Get JSON from server
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let session = NSURLSession(configuration: config, delegate: nil, delegateQueue: nil)
+            let url = NSURL(string: urlString)
+            let request  = NSMutableURLRequest(URL: url!)
+            request.HTTPMethod = "GET"
+            
+            // Make HTTP request
+            session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                
+                if (data != nil) {
+                    
+                    // Parse result JSON
+                    let json = JSON(data: data!)
+                    print(json)
+                    let userName = json[0]["userName"].stringValue
+                    print("\(userName)")
+                    
+                    // The current token we have is already valid and not exired! YAY!
+                    // We have complete access to the User Information
+                    if(userName != "") {
+                        
+                        print("Still Valid: "+"\(currentToken)")
+                        
+                        // Send off thread to get ALL current values of user from the API on the server...and set them in the view controller
+                        dispatch_async(dispatch_get_main_queue()) {
+                            
+                            
+                            
+                            
+                        }
+                    }
+                        
+                        // The current token we have is NOT VALID, most likely expired...
+                    else {
+                        message = json["message"].stringValue
+                        print("\(message)")
+                        
+                        // Send off a thread to get user off of screen...because they do not have a valid token.
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.performSegueWithIdentifier("showLoginSegue", sender: self)
+                        }
+                        
+                    }
+                    
+                }
+                else {
+                    print("Data is nil")
+                }
+                
+                if(error != nil) {
+                    print("\(error)")
+                }
+                
+            }).resume()
+        }
+        
+        // Just redirect User Automatically to the login screen if the token does not exist in NSUserDefaults
+        else {
+            
+            self.performSegueWithIdentifier("showLoginSegue", sender: self)
+        }
+        
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

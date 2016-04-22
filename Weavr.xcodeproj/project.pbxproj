@@ -12,6 +12,7 @@
 		0246D0501CBFF167005150C8 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D04F1CBFF167005150C8 /* MessagesTableViewController.swift */; };
 		0246D0521CBFF4CC005150C8 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0511CBFF4CC005150C8 /* MessagesTableViewCell.swift */; };
 		0246D0541CBFF7C0005150C8 /* UserConvo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0531CBFF7C0005150C8 /* UserConvo.swift */; };
+		0246D0561CC885DF005150C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0551CC885DF005150C8 /* LoginViewController.swift */; };
 		028A97981CA461D50073E779 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A97971CA461D50073E779 /* User.swift */; };
 		028A979A1CA4DF530073E779 /* userProfiles.json in Resources */ = {isa = PBXBuildFile; fileRef = 028A97991CA4DF530073E779 /* userProfiles.json */; };
 		028A979C1CAA1B3A0073E779 /* green_orange_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 028A979B1CAA1B3A0073E779 /* green_orange_background.jpg */; };
@@ -53,6 +54,7 @@
 		0246D04F1CBFF167005150C8 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		0246D0511CBFF4CC005150C8 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		0246D0531CBFF7C0005150C8 /* UserConvo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConvo.swift; sourceTree = "<group>"; };
+		0246D0551CC885DF005150C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		028A97971CA461D50073E779 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		028A97991CA4DF530073E779 /* userProfiles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userProfiles.json; sourceTree = "<group>"; };
 		028A979B1CAA1B3A0073E779 /* green_orange_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = green_orange_background.jpg; path = FrostedSidebar/green_orange_background.jpg; sourceTree = SOURCE_ROOT; };
@@ -136,18 +138,18 @@
 			isa = PBXGroup;
 			children = (
 				0246D04B1CBD6ED2005150C8 /* SwiftyJSON.swift */,
-				0246D04A1CBD6ED2005150C8 /* ChatViewController.swift */,
-				02F64D2D1CA1AB9B00160248 /* MapViewController.swift */,
-				02FE89E81CA4553500D400E8 /* UserViewController.swift */,
-				02FE89E41CA3663D00D400E8 /* MapViewDelagate.swift */,
+				2008D69B197021D300B89D6C /* AppDelegate.swift */,
+				0246D0551CC885DF005150C8 /* LoginViewController.swift */,
+				20A1FAD819B4B1CE00208E92 /* TabBarController.swift */,
 				2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */,
 				02F64D211C92299800160248 /* ProfileViewController.swift */,
-				20A1FAD819B4B1CE00208E92 /* TabBarController.swift */,
-				2008D69B197021D300B89D6C /* AppDelegate.swift */,
-				2008D69C197021D300B89D6C /* ViewController.swift */,
+				02F64D2D1CA1AB9B00160248 /* MapViewController.swift */,
+				02FE89E41CA3663D00D400E8 /* MapViewDelagate.swift */,
+				02FE89E81CA4553500D400E8 /* UserViewController.swift */,
 				0246D04F1CBFF167005150C8 /* MessagesTableViewController.swift */,
-				0246D0531CBFF7C0005150C8 /* UserConvo.swift */,
 				0246D0511CBFF4CC005150C8 /* MessagesTableViewCell.swift */,
+				0246D04A1CBD6ED2005150C8 /* ChatViewController.swift */,
+				2008D69C197021D300B89D6C /* ViewController.swift */,
 				2008D69F1970223100B89D6C /* Main.storyboard */,
 				20E0B97F1B6A7A32002A3FED /* LaunchScreen.storyboard */,
 				2008D6A51970231B00B89D6C /* Images.xcassets */,
@@ -160,6 +162,7 @@
 		208E5DF1196DBE6F005653B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0246D0531CBFF7C0005150C8 /* UserConvo.swift */,
 				028A97991CA4DF530073E779 /* userProfiles.json */,
 				02FE89E61CA382E000D400E8 /* JSON.swift */,
 				02FE89E01CA3617D00D400E8 /* PublicArt.json */,
@@ -345,6 +348,7 @@
 				0246D0501CBFF167005150C8 /* MessagesTableViewController.swift in Sources */,
 				2066AEA3196DC14A001EE855 /* FrostedSidebar.swift in Sources */,
 				0246D04C1CBD6ED2005150C8 /* ChatViewController.swift in Sources */,
+				0246D0561CC885DF005150C8 /* LoginViewController.swift in Sources */,
 				0246D04D1CBD6ED2005150C8 /* SwiftyJSON.swift in Sources */,
 				0246D0541CBFF7C0005150C8 /* UserConvo.swift in Sources */,
 				028A97981CA461D50073E779 /* User.swift in Sources */,
