@@ -17,7 +17,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var errorMessage: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if(success == "true") {
                     
                     let token = json["token"].stringValue
-                    print("\(token)")
+                    let _id = json["_id"].stringValue
                     
                     // Send off a thread to set the NSUserDefaults currentToken to the token we just got, and dismiss the login screen
                     dispatch_async(dispatch_get_main_queue()) {
@@ -74,6 +73,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         
                         let prefs = NSUserDefaults.standardUserDefaults()
                         prefs.setValue(token, forKey:"currentToken")
+                        prefs.setValue(_id, forKey:"_id")
+                        
+                        print("Got the ID on login")
+                        
+                        // Use the reference to the ProfileViewController that was passed in on the segue
+                        // and set the _id variable to the _id that was recieved on login
+                        // Then dismiss the LoginViewController
+                        // This is probably not the best way to do this...but is working for now
                         
                         self.dismissViewControllerAnimated(true, completion: {})
                         
@@ -112,14 +119,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        print("Login Segue is getting called")
+        
     }
-    */
+    
 
 }

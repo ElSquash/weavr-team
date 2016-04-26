@@ -157,8 +157,7 @@ class EditProfileViewController: UIViewController, UIScrollViewDelegate, UIPicke
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        // START HERE PLEASEEEEEEE
-        // PLEAAAASEEEEEEEEEEEEEEE
+       
         // If User presses save button, send off request to server to update all the newly changed information...
         // Need to send off all info listed below, especially the _id. Send in POST format.
         if saveChanges === sender {
@@ -169,9 +168,93 @@ class EditProfileViewController: UIViewController, UIScrollViewDelegate, UIPicke
             updatedUserInfo?["topicTwo"] = self.topicTwoInput.text
             updatedUserInfo?["topicThree"] = self.topicThreeInput.text
             updatedUserInfo?["leavingAt"] = currentHourSelected + currentMinuteSelected + " " + currentAmPmSelected
-            updatedUserInfo?["_id"] = self.previousUserInfo["_id"]
             
+        }
+        
+        // Check NSUserDefaults for a "currentToken" to access the server with...
+        let prefs = NSUserDefaults.standardUserDefaults()
+        
+        // Use below line for testing, if you need to remove the current token
+        //prefs.removeObjectForKey("currentToken")
+        
+        if let currentToken = prefs.stringForKey("currentToken"){
             
+            let storedID = prefs.stringForKey("_id")
+            let urlString = "http://localhost:8000/api/updateUserInfo"
+            
+            // Get text input from Login Screen
+            let currentToken = "token=" + currentToken
+            let _id = "&_id=" + storedID!
+            let userWords = "&userWords=" + self.updatedUserInfo!["userWords"]!
+            let topicOne = "&topicOne=" + self.updatedUserInfo!["topicOne"]!
+            let topicTwo = "&topicTwo=" + self.updatedUserInfo!["topicTwo"]!
+            let topicThree = "&topicThree=" + self.updatedUserInfo!["topicThree"]!
+            let leavingAt = "&leavingAt=" + self.updatedUserInfo!["leavingAt"]!
+
+            let bodyData = currentToken + _id + userWords + topicOne + topicTwo + topicThree + leavingAt
+            
+            var message = "foo"
+            
+            // Get JSON from server
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let session = NSURLSession(configuration: config, delegate: nil, delegateQueue: nil)
+            let url = NSURL(string: urlString)
+            let request  = NSMutableURLRequest(URL: url!)
+            request.HTTPMethod = "POST"
+            
+            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            // Make HTTP request
+            session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                
+                if (data != nil) {
+                    
+                    // Parse result JSON
+                    let json = JSON(data: data!)
+
+                    let userUpdated = json["userUpdated"].stringValue
+                    print("\(userUpdated)")
+                    
+                    // The current token we have is already valid and not exired! YAY!
+                    // We have complete access to the User Information
+                    if(userUpdated == "true") {
+                        
+                        print("Token still valid, and user was found!")
+                        
+                        // Send off thread to do something async because the update was successful...
+                        dispatch_async(dispatch_get_main_queue()) {
+                            
+
+                        }
+                    }
+                        
+                        // The current token we have is NOT VALID, most likely expired...
+                    else {
+                        message = json["message"].stringValue
+                        print("\(message)")
+                        
+                        // Send off a thread to get user off of screen...because they do not have a valid token
+                        dispatch_async(dispatch_get_main_queue()) {
+                            
+                            // Remove cached token and _id because they are outdated now
+                            prefs.removeObjectForKey("currentToken")
+                            prefs.removeObjectForKey("_id")
+                            
+                            self.dismissViewControllerAnimated(false, completion: {})
+                        }
+                        
+                    }
+                    
+                }
+                else {
+                    print("Data is nil")
+                }
+                
+                if(error != nil) {
+                    print("\(error)")
+                }
+                
+            }).resume()
         }
     
     }
