@@ -24,7 +24,7 @@ class UserViewController: ProfileViewController {
         
         if userDetails != nil {
             
-            userName.text? = userDetails!.userName
+            name.text? = userDetails!.userName
             
             metStarsBlocked.setTitle("Met " + userDetails!.metNumber, forSegmentAtIndex: 0)
             metStarsBlocked.setTitle("Stars " + userDetails!.starsNumber, forSegmentAtIndex: 1)

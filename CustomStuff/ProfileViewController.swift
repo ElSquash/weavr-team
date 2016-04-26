@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var metStarsBlocked: UISegmentedControl!
     
@@ -32,9 +32,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     var userDetails : User?
     
+    var _id = ""
+    
     
     override func viewDidAppear(animated: Bool) {
-        
         // Check NSUserDefaults for a "currentToken" to access the server with...
         let prefs = NSUserDefaults.standardUserDefaults()
         
@@ -68,14 +69,29 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                     // We have complete access to the User Information
                     if(userName != "") {
                         
-                        print("Still Valid: "+"\(currentToken)")
+                        print("Token still valid, populate user data :)")
                         
                         // Send off thread to get ALL current values of user from the API on the server...and set them in the view controller
                         dispatch_async(dispatch_get_main_queue()) {
                             
+                            self.name.text = json[0]["firstName"].stringValue + " " + json[0]["lastName"].stringValue
                             
+                            self.metStarsBlocked.setTitle("Met " + json[0]["metNumber"].stringValue, forSegmentAtIndex: 0)
+                            self.metStarsBlocked.setTitle("Stars " + json[0]["starsNumber"].stringValue, forSegmentAtIndex: 1)
+                            self.metStarsBlocked.setTitle("Blocked " + json[0]["blockedNumber"].stringValue, forSegmentAtIndex: 2)
                             
+                            self.topicOneLabel.text = json[0]["topicOne"].stringValue
+                            self.topicTwoLabel.text = json[0]["topicTwo"].stringValue
+                            self.topicThreeLabel.text = json[0]["topicThree"].stringValue
                             
+                            // Implement magic way of getting their location name from coordinates?
+                            self.locationLabel.text = "At: " + "Test Location"
+
+                            self.leavingLabel.text = "Until: " + json[0]["leavingAt"].stringValue
+                            
+                            self.userWords.text = json[0]["userWords"].stringValue
+                            
+                            self._id = json[0]["_id"].stringValue
                         }
                     }
                         
@@ -134,15 +150,50 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        let identifier = "editProfileSegue"
+        
+        // User wants to go to Edit Profile page, so set up all the current data so it's there when they go
+        if let vc = segue.destinationViewController as? UINavigationController {
+            
+            if segue.identifier == identifier {
+                
+                if let editProfileVC = vc.topViewController as? EditProfileViewController {
+
+                    let editingText = self.userWords.text
+                    let editingTopicOne = self.topicOneLabel.text
+                    let editingTopicTwo = self.topicTwoLabel.text
+                    let editingTopicThree = self.topicThreeLabel.text
+                    let keepId = self._id
+                    
+                    editProfileVC.previousUserInfo["userWords"] = editingText
+                    editProfileVC.previousUserInfo["topicOne"] = editingTopicOne
+                    editProfileVC.previousUserInfo["topicTwo"] = editingTopicTwo
+                    editProfileVC.previousUserInfo["topicThree"] = editingTopicThree
+                    editProfileVC.previousUserInfo["_id"] = keepId
+
+                    
+                }
+            }
+        }
     }
-    */
+    
+    // Handle anything that needs to be done in the Profile page here, after updating the user info on the EditProfilePage
+    @IBAction func unwindToProfileViewController(sender: UIStoryboardSegue) {
+        
+        print("Got here")
+        if let sourceVC = sender.sourceViewController as? EditProfileViewController {
+            
+            print(sourceVC.updatedUserInfo!)
+        }
+        
+    }
+    
     
     @IBAction func onBurger() {
         

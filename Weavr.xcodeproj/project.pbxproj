@@ -13,6 +13,7 @@
 		0246D0521CBFF4CC005150C8 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0511CBFF4CC005150C8 /* MessagesTableViewCell.swift */; };
 		0246D0541CBFF7C0005150C8 /* UserConvo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0531CBFF7C0005150C8 /* UserConvo.swift */; };
 		0246D0561CC885DF005150C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0551CC885DF005150C8 /* LoginViewController.swift */; };
+		0246D0581CCDBF1A005150C8 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0571CCDBF1A005150C8 /* EditProfileViewController.swift */; };
 		028A97981CA461D50073E779 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A97971CA461D50073E779 /* User.swift */; };
 		028A979A1CA4DF530073E779 /* userProfiles.json in Resources */ = {isa = PBXBuildFile; fileRef = 028A97991CA4DF530073E779 /* userProfiles.json */; };
 		028A979C1CAA1B3A0073E779 /* green_orange_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 028A979B1CAA1B3A0073E779 /* green_orange_background.jpg */; };
@@ -55,6 +56,7 @@
 		0246D0511CBFF4CC005150C8 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		0246D0531CBFF7C0005150C8 /* UserConvo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConvo.swift; sourceTree = "<group>"; };
 		0246D0551CC885DF005150C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0246D0571CCDBF1A005150C8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		028A97971CA461D50073E779 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		028A97991CA4DF530073E779 /* userProfiles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userProfiles.json; sourceTree = "<group>"; };
 		028A979B1CAA1B3A0073E779 /* green_orange_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = green_orange_background.jpg; path = FrostedSidebar/green_orange_background.jpg; sourceTree = SOURCE_ROOT; };
@@ -143,6 +145,7 @@
 				20A1FAD819B4B1CE00208E92 /* TabBarController.swift */,
 				2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */,
 				02F64D211C92299800160248 /* ProfileViewController.swift */,
+				0246D0571CCDBF1A005150C8 /* EditProfileViewController.swift */,
 				02F64D2D1CA1AB9B00160248 /* MapViewController.swift */,
 				02FE89E41CA3663D00D400E8 /* MapViewDelagate.swift */,
 				02FE89E81CA4553500D400E8 /* UserViewController.swift */,
@@ -343,6 +346,7 @@
 				02FE89E31CA3633F00D400E8 /* Artwork.swift in Sources */,
 				20A1FAD919B4B1CE00208E92 /* TabBarController.swift in Sources */,
 				0246D0521CBFF4CC005150C8 /* MessagesTableViewCell.swift in Sources */,
+				0246D0581CCDBF1A005150C8 /* EditProfileViewController.swift in Sources */,
 				02F64D221C92299800160248 /* ProfileViewController.swift in Sources */,
 				2008D69D197021D300B89D6C /* AppDelegate.swift in Sources */,
 				0246D0501CBFF167005150C8 /* MessagesTableViewController.swift in Sources */,
