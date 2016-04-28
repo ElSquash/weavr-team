@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var userName: UITextField!
     
@@ -39,7 +40,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Get text input from Login Screen
         let userNameInput = userName.text
         let passwordInput = password.text
-        let bodyData = "userName=" + userNameInput! + "&password=" + passwordInput!
+        let bodyData = "userName=" + userNameInput!.lowercaseString + "&password=" + passwordInput!
         var message = "foo"
         
         // Get JSON from server
@@ -69,7 +70,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     // Send off a thread to set the NSUserDefaults currentToken to the token we just got, and dismiss the login screen
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.errorMessage.text = "Got Token!"
+                        self.errorMessage.textColor = UIColor.greenColor()
+                        self.errorMessage.text = "Success!"
                         
                         let prefs = NSUserDefaults.standardUserDefaults()
                         prefs.setValue(token, forKey:"currentToken")
@@ -121,8 +123,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     // MARK: - Navigation
+    
+    @IBAction func unwindToLoginPage(sender:UIStoryboardSegue) {
+        print("Unwinded to LoginViewCOntroller")
+        
+        if let signUpVC = sender.sourceViewController as? SignupViewController {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+            // User was created
+            if signUpVC.createdUser != nil {
+                
+                print("Username and password being set, then press login button")
+                self.userName.text = signUpVC.createdUser!["userName"]
+                self.password.text = signUpVC.createdUser!["password"]
+                self.attemptLogin(self.loginButton)
+            }
+        }
+        
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         print("Login Segue is getting called")

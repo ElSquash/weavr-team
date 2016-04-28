@@ -14,6 +14,9 @@
 		0246D0541CBFF7C0005150C8 /* UserConvo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0531CBFF7C0005150C8 /* UserConvo.swift */; };
 		0246D0561CC885DF005150C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0551CC885DF005150C8 /* LoginViewController.swift */; };
 		0246D0581CCDBF1A005150C8 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0571CCDBF1A005150C8 /* EditProfileViewController.swift */; };
+		0246D05A1CD032AD005150C8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D0591CD032AD005150C8 /* SettingsViewController.swift */; };
+		0246D05C1CD035CF005150C8 /* blue_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0246D05B1CD035CF005150C8 /* blue_background.png */; };
+		0246D05E1CD0403E005150C8 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0246D05D1CD0403E005150C8 /* SignupViewController.swift */; };
 		028A97981CA461D50073E779 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A97971CA461D50073E779 /* User.swift */; };
 		028A979A1CA4DF530073E779 /* userProfiles.json in Resources */ = {isa = PBXBuildFile; fileRef = 028A97991CA4DF530073E779 /* userProfiles.json */; };
 		028A979C1CAA1B3A0073E779 /* green_orange_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 028A979B1CAA1B3A0073E779 /* green_orange_background.jpg */; };
@@ -57,6 +60,9 @@
 		0246D0531CBFF7C0005150C8 /* UserConvo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConvo.swift; sourceTree = "<group>"; };
 		0246D0551CC885DF005150C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0246D0571CCDBF1A005150C8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		0246D0591CD032AD005150C8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0246D05B1CD035CF005150C8 /* blue_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue_background.png; path = FrostedSidebar/blue_background.png; sourceTree = SOURCE_ROOT; };
+		0246D05D1CD0403E005150C8 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		028A97971CA461D50073E779 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		028A97991CA4DF530073E779 /* userProfiles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userProfiles.json; sourceTree = "<group>"; };
 		028A979B1CAA1B3A0073E779 /* green_orange_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = green_orange_background.jpg; path = FrostedSidebar/green_orange_background.jpg; sourceTree = SOURCE_ROOT; };
@@ -142,6 +148,7 @@
 				0246D04B1CBD6ED2005150C8 /* SwiftyJSON.swift */,
 				2008D69B197021D300B89D6C /* AppDelegate.swift */,
 				0246D0551CC885DF005150C8 /* LoginViewController.swift */,
+				0246D05D1CD0403E005150C8 /* SignupViewController.swift */,
 				20A1FAD819B4B1CE00208E92 /* TabBarController.swift */,
 				2066AEA2196DC14A001EE855 /* FrostedSidebar.swift */,
 				02F64D211C92299800160248 /* ProfileViewController.swift */,
@@ -152,6 +159,7 @@
 				0246D04F1CBFF167005150C8 /* MessagesTableViewController.swift */,
 				0246D0511CBFF4CC005150C8 /* MessagesTableViewCell.swift */,
 				0246D04A1CBD6ED2005150C8 /* ChatViewController.swift */,
+				0246D0591CD032AD005150C8 /* SettingsViewController.swift */,
 				2008D69C197021D300B89D6C /* ViewController.swift */,
 				2008D69F1970223100B89D6C /* Main.storyboard */,
 				20E0B97F1B6A7A32002A3FED /* LaunchScreen.storyboard */,
@@ -171,6 +179,7 @@
 				02FE89E01CA3617D00D400E8 /* PublicArt.json */,
 				028A97971CA461D50073E779 /* User.swift */,
 				02FE89E21CA3633F00D400E8 /* Artwork.swift */,
+				0246D05B1CD035CF005150C8 /* blue_background.png */,
 				028A979B1CAA1B3A0073E779 /* green_orange_background.jpg */,
 				02FE89DE1CA24A1900D400E8 /* blue_green_backround.jpg */,
 				20B553AF19701F1F006165BF /* Background.jpg */,
@@ -278,6 +287,7 @@
 				2008D6A61970231B00B89D6C /* Images.xcassets in Resources */,
 				20B553C319701F1F006165BF /* gear@2x.png in Resources */,
 				20B553CC19701F1F006165BF /* star@2x.png in Resources */,
+				0246D05C1CD035CF005150C8 /* blue_background.png in Resources */,
 				20B553C919701F1F006165BF /* profile.png in Resources */,
 				20B553CA19701F1F006165BF /* profile@2x.png in Resources */,
 			);
@@ -340,9 +350,11 @@
 			files = (
 				02FE89E51CA3663D00D400E8 /* MapViewDelagate.swift in Sources */,
 				02FE89E91CA4553500D400E8 /* UserViewController.swift in Sources */,
+				0246D05E1CD0403E005150C8 /* SignupViewController.swift in Sources */,
 				2008D69E197021D300B89D6C /* ViewController.swift in Sources */,
 				02F64D2E1CA1AB9B00160248 /* MapViewController.swift in Sources */,
 				02FE89E71CA382E000D400E8 /* JSON.swift in Sources */,
+				0246D05A1CD032AD005150C8 /* SettingsViewController.swift in Sources */,
 				02FE89E31CA3633F00D400E8 /* Artwork.swift in Sources */,
 				20A1FAD919B4B1CE00208E92 /* TabBarController.swift in Sources */,
 				0246D0521CBFF4CC005150C8 /* MessagesTableViewCell.swift in Sources */,
