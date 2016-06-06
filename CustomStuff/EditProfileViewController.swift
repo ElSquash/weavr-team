@@ -58,6 +58,8 @@ class EditProfileViewController: UIViewController, UIScrollViewDelegate, UIPicke
             topicThreeInput.text = previousUserInfo["topicThree"]
 
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,7 +98,7 @@ class EditProfileViewController: UIViewController, UIScrollViewDelegate, UIPicke
         
         var attributedString: NSAttributedString!
         
-        attributedString = NSAttributedString(string: pickerData[component][row], attributes: [NSForegroundColorAttributeName : UIColor.blueColor()])
+        attributedString = NSAttributedString(string: pickerData[component][row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
 
         
         return attributedString
@@ -180,7 +182,7 @@ class EditProfileViewController: UIViewController, UIScrollViewDelegate, UIPicke
         if let currentToken = prefs.stringForKey("currentToken"){
             
             let storedID = prefs.stringForKey("_id")
-            let urlString = "http://localhost:8000/api/updateUserInfo"
+            let urlString = "http://192.81.216.130:8000/api/updateUserInfo"
             
             // Get text input from Login Screen
             let currentToken = "token=" + currentToken

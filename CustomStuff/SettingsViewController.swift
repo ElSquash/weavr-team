@@ -33,6 +33,7 @@ class SettingsViewController: UIViewController {
         
         prefs.removeObjectForKey("currentToken")
         prefs.removeObjectForKey("_id")
+
         
         if let myTabBar = tabBarController as? TabBarController {
             myTabBar.sidebar.selectItemAtIndex(0)

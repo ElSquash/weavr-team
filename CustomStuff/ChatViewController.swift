@@ -26,7 +26,7 @@ class ChatViewController: UIViewController {
     // Fetch Access Token form the server and initialize IPM Client - this assumes you are running
     // the PHP starter app on your local machine, as instructed in the quick start guide
     //let deviceId = UIDevice.currentDevice().identifierForVendor!.UUIDString
-    let urlString = "http://localhost:8000/token"
+    let urlString = "http://192.81.216.130:8000/token"
     let defaultChannel = "general"
     
     // Get JSON from server
@@ -60,7 +60,10 @@ class ChatViewController: UIViewController {
                 let allCurrentMessages = channel.messages.allObjects()
                 for message in allCurrentMessages {
                     print("message body: \(message.body)")
+                    self.messages.append(message)
                 }
+                self.tableView.reloadData()
+                self.scrollToBottomMessage()
                 
                 
               })

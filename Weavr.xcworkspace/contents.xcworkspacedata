@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CustomStuff/SignupViewController2.swift">
+   </FileRef>
+   <FileRef
       location = "group:Weavr.xcodeproj">
    </FileRef>
    <FileRef

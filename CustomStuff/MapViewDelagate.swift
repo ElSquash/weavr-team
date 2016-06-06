@@ -65,29 +65,36 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 
     }
     
-    
+    /*
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print("User Location Was updated")
+        print("User Location Was updated " + "\(++tempCountLocationUpdates)")
         
         let location = locations.last
         
-        // This will give us a
-        let regionRadius: CLLocationDistance = 2000
+        if(regionSet == false){
         
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+            // This will give us a region, and set it
+            let regionRadius: CLLocationDistance = 2000
+            
+            let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+            
+            let region = MKCoordinateRegionMakeWithDistance(center, regionRadius, regionRadius)
+            
+            userMap.setRegion(region, animated: true)
+            
+            regionSet = true
+        }
         
-        let region = MKCoordinateRegionMakeWithDistance(center, regionRadius, regionRadius)
+        // locationManager.stopUpdatingLocation()
         
-        userMap.setRegion(region, animated: true)
-        
-        locationManager.stopUpdatingLocation()
-    
+        // Send off a request to update the user's most current location, and to get all closest users around
+        // Ony send when user has moved more than .25 miles from first location found
+        // This ideally will only show users who are currently online
     }
-    
+    */
     
     // Get alllll the information needed from the Annotation of the pin (the user)
-    //Right now I am using Artwork, AND User but eventually will be using only the User class of type MKAnnotation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let identifier = segue.identifier

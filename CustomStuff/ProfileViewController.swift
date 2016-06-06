@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
@@ -32,18 +33,24 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     var userDetails : User?
     
+    // Properties for CLLocationManager in ProfileViewControllerDelegate
+    var locationManager = CLLocationManager()
+    var tempCountLocationUpdates = 0
+    let prefs = NSUserDefaults.standardUserDefaults()
+    
+    
     override func viewDidAppear(animated: Bool) {
-        // Check NSUserDefaults for a "currentToken" to access the server with...
-        let prefs = NSUserDefaults.standardUserDefaults()
         
+        // Check NSUserDefaults for a "currentToken" to access the server with...
         // Use below line for testing, if you need to remove the current token
+        
         //prefs.removeObjectForKey("currentToken")
         
         if let currentToken = prefs.stringForKey("currentToken"){
             
             let storedID = prefs.stringForKey("_id")
             print("My Current user ID is: " + storedID!)
-            let urlString = "http://localhost:8000/api/getSingleUserInfo"
+            let urlString = "http://192.81.216.130:8000/api/getSingleUserInfo"
             var message = "foo"
             
             
@@ -105,8 +112,8 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                         print("\(message)")
                         
                         // Remove the cached token and user ID, as they are expired
-                        prefs.removeObjectForKey("currentToken")
-                        prefs.removeObjectForKey("_id")
+                        self.prefs.removeObjectForKey("currentToken")
+                        self.prefs.removeObjectForKey("_id")
                         
                         // Send off a thread to get user off of screen...because they do not have a valid token.
                         dispatch_async(dispatch_get_main_queue()) {
@@ -141,6 +148,13 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         scrollView.contentSize.height = 1000
+        
+        // Set up the preliminary settings for user location
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     override func viewDidLayoutSubviews() {

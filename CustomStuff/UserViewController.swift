@@ -10,11 +10,12 @@ import UIKit
 
 
 // This class is eventually going to show all the information belonging to the User class of type MKAnnotation
-// Should look very similar to the ProfileViewController class, maybe even subclass it?
-// Right now using the Artwork class instead, need to wait until a JSON file is written containing some User Profiles
-// Also need to finish the User class...then we can finish this View Controller.
 
 class UserViewController: ProfileViewController {
+    
+    override func viewDidAppear(animated: Bool) {
+        
+    }
 
     
     override func viewDidLoad() {
@@ -34,9 +35,9 @@ class UserViewController: ProfileViewController {
             
             print("\(userDetails!.topicOne)")
             
-            topicOneLabel.text? = "◉ " + userDetails!.topicOne
-            topicTwoLabel.text? = "◉ " + userDetails!.topicTwo
-            topicThreeLabel.text? = "◉ " + userDetails!.topicThree
+            topicOneLabel.text? = userDetails!.topicOne
+            topicTwoLabel.text? = userDetails!.topicTwo
+            topicThreeLabel.text? = userDetails!.topicThree
             
             
             locationLabel.text? = "At: " + userDetails!.locationName

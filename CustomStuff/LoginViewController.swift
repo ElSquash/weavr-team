@@ -34,12 +34,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func attemptLogin(sender: UIButton) {
-        print("Running")
-        let urlString = "http://localhost:8000/api/authenticate"
+        
+        
+        
+        let urlString = "http://192.81.216.130:8000/api/authenticate"
         
         // Get text input from Login Screen
         let userNameInput = userName.text
         let passwordInput = password.text
+
+
         let bodyData = "userName=" + userNameInput!.lowercaseString + "&password=" + passwordInput!
         var message = "foo"
         
@@ -111,6 +115,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
         }).resume()
+         
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

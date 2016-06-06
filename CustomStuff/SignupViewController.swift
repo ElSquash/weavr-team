@@ -32,7 +32,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
     
     @IBOutlet weak var male_female_input: UISegmentedControl!
     
+    
     var userDateChoice = ""
+    var signUp2InfoSaved = [String : String]()
     var createdUser : [String : String]?
     
     override func viewDidLoad() {
@@ -47,7 +49,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         userNameInput.delegate = self
         passwordInput.delegate = self
         confirmPasswordInput.delegate = self
-        
         
     }
 
@@ -86,7 +87,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
                 // Reached the golden state, try to insert User
                 if passwordInput.text != "" && confirmPasswordInput.text == passwordInput.text {
                     
-                    let urlString = "http://localhost:8000/api/registerUser"
+                    let urlString = "http://192.81.216.130:8000/api/registerUser"
                     var message = "foo"
                     
                     
@@ -197,6 +198,38 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
             
             print("Sign up was cancelled")
         }
+        
+        if segue.identifier == "signUp2Segue"{
+            
+            if let signUp2Vc = segue.destinationViewController as? SignupViewController2 {
+
+                print("Storing values now from signup 1")
+                signUp2Vc.signUpInfo1Saved["FirstName"] = firstNameInput.text
+                signUp2Vc.signUpInfo1Saved["LastName"] = lastNameInput.text
+                signUp2Vc.signUpInfo1Saved["DateOfBirth"] = userDateChoice
+                
+       
+                    
+                print("signup2InfoSaved is not nil")
+                    
+                for(key, value) in signUp2InfoSaved{
+                        
+                        signUp2Vc.signUpInfo1Saved[key] = value
+                        print(key + " ->" + value)
+                    
+                }
+                
+            }
+        }
+    }
+    
+    @IBAction func unwindToSignUp1(sender: UIStoryboardSegue){
+        
+            
+        print("This unwind segue is working")
+        print("Value of email in signUp2InfoSaved is: " + signUp2InfoSaved["email"]!)
+        
+        
     }
     
 
