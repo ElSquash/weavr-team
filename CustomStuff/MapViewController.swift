@@ -13,9 +13,6 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var userMap: MKMapView!
     
-    // MARK: - location manager to authorize user location for Maps app
-    var locationManager = CLLocationManager()
-    
     let regionRadius: CLLocationDistance = 2000
     var users = [User]()
     var regionSet = false
@@ -82,6 +79,9 @@ class MapViewController: UIViewController {
                         // Remove the cached token and user ID, as they are expired
                         self.prefs.removeObjectForKey("currentToken")
                         self.prefs.removeObjectForKey("_id")
+                        self.prefs.removeObjectForKey("currentLatitude")
+                        self.prefs.removeObjectForKey("currentLongitude")
+
                         
                         // Send off a thread to get user off of screen...send them to the ProfileViewController for now...
                         // Profile view controller will read that there are no keys in the prefs.
@@ -118,16 +118,6 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         userMap.delegate = self
-        /*
-        locationManager.delegate = self
-        
-        // Set up the preliminary settings for user location
-        
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        */
         
         userMap.showsUserLocation = true
         
@@ -155,8 +145,12 @@ class MapViewController: UIViewController {
         }
         
         // Load fake JSON data
-        // This is where the sample file of users is parsed, and the User annotations are created and added to an array
+        // This is where the sample file of users is currently parsed, and the User annotations are created and added to an array
         loadInitialUsers()
+        
+        // Need to add an API call to get all currently active users who are within 1 mile
+        loadActiveCloseUsers()
+        
         userMap.addAnnotations(users)
     }
 
@@ -164,6 +158,11 @@ class MapViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadActiveCloseUsers(){
+        
+        
     }
     
     

@@ -80,6 +80,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         let prefs = NSUserDefaults.standardUserDefaults()
                         prefs.setValue(token, forKey:"currentToken")
                         prefs.setValue(_id, forKey:"_id")
+                        prefs.setValue("true", forKey:"needLocationUpdate")
                         
                         print("Got the ID on login")
                         
