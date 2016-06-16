@@ -32,7 +32,6 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var userWords: UITextView!
     
     var userDetails : User?
-    var test : String?
     
     // Properties for CLLocationManager in ProfileViewControllerDelegate
     var locationManager = CLLocationManager()
