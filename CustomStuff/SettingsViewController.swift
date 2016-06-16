@@ -33,7 +33,8 @@ class SettingsViewController: UIViewController {
         
         prefs.removeObjectForKey("currentToken")
         prefs.removeObjectForKey("_id")
-
+        prefs.removeObjectForKey("currentLatitude")
+        prefs.removeObjectForKey("currentLongitude")
         
         if let myTabBar = tabBarController as? TabBarController {
             myTabBar.sidebar.selectItemAtIndex(0)

@@ -36,6 +36,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     // Properties for CLLocationManager in ProfileViewControllerDelegate
     var locationManager = CLLocationManager()
     var tempCountLocationUpdates = 0
+    var persistentLocation : CLLocation?
     let prefs = NSUserDefaults.standardUserDefaults()
     
     
@@ -86,6 +87,14 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                         // Send off thread to get ALL current values of user from the API on the server...and set them in the view controller
                         dispatch_async(dispatch_get_main_queue()) {
                             
+                            // Set up the preliminary settings for user location
+                            self.locationManager.delegate = self
+                            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                            
+                            self.locationManager.requestWhenInUseAuthorization()
+                            self.locationManager.startUpdatingLocation()
+                            
+                            // Display all information needed from the API call
                             self.name.text = json["firstName"].stringValue + " " + json["lastName"].stringValue
                             
                             self.metStarsBlocked.setTitle("Met " + json["metNumber"].stringValue, forSegmentAtIndex: 0)
@@ -97,7 +106,8 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                             self.topicThreeLabel.text = json["topicThree"].stringValue
                             
                             // Implement magic way of getting their location name from coordinates?
-                            self.locationLabel.text = "At: " + "Test Location"
+                            print("Location received from server: " + "\(json["locationName"].stringValue)")
+                            self.locationLabel.text = "At: " + json["locationName"].stringValue
 
                             self.leavingLabel.text = "Until: " + json["leavingAt"].stringValue
                             
@@ -114,9 +124,16 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                         // Remove the cached token and user ID, as they are expired
                         self.prefs.removeObjectForKey("currentToken")
                         self.prefs.removeObjectForKey("_id")
+                        self.prefs.removeObjectForKey("currentLatitude")
+                        self.prefs.removeObjectForKey("currentLongitude")
+
+                        
+                        // Stop getting location, if the user is going to be logged out
+                        self.locationManager.stopUpdatingLocation()
                         
                         // Send off a thread to get user off of screen...because they do not have a valid token.
                         dispatch_async(dispatch_get_main_queue()) {
+                            
                             self.performSegueWithIdentifier("showLoginSegue", sender: self)
                         }
                         
@@ -137,6 +154,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         // Just redirect User Automatically to the login screen if the token does not exist in NSUserDefaults
         else {
             
+            // Stop getting location, if the user is going to be logged out, because they don't have a token stored
+            print("Stop Updating user location")
+            self.locationManager.stopUpdatingLocation()
+            
             self.performSegueWithIdentifier("showLoginSegue", sender: self)
         }
         
@@ -149,12 +170,6 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.contentSize.height = 1000
         
-        // Set up the preliminary settings for user location
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
     }
     
     override func viewDidLayoutSubviews() {
