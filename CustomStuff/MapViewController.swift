@@ -15,10 +15,7 @@ class MapViewController: UIViewController {
     
     let regionRadius: CLLocationDistance = 2000
     var users = [User]()
-    var regionSet = false
     var tempCountLocationUpdates = 0
-    var prefs = NSUserDefaults.standardUserDefaults()
-    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -28,10 +25,12 @@ class MapViewController: UIViewController {
         // Use below line for testing, if you need to remove the current token
         //prefs.removeObjectForKey("currentToken")
         
-        if let currentToken = prefs.stringForKey("currentToken"){
+        if DataControl.getInstance().tokenExists(){
             
-            let storedID = prefs.stringForKey("_id")
-            print("My Current user ID is: " + storedID!)
+            let currentToken = DataControl.getInstance().getToken()
+            let storedID = DataControl.getInstance().getID()
+            
+            print("My Current user ID is: " + storedID)
             let urlString = "http://192.81.216.130:8000/api/checkTokenExpired"
             var message = "foo"
             
@@ -44,7 +43,7 @@ class MapViewController: UIViewController {
             let request  = NSMutableURLRequest(URL: url!)
             request.HTTPMethod = "POST"
             
-            let bodyData = "token=" + currentToken + "&_id=" + storedID!
+            let bodyData = "token=" + currentToken + "&_id=" + storedID
             
             request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding)
             
@@ -59,14 +58,38 @@ class MapViewController: UIViewController {
                     let success = json["success"].stringValue
                     print("\("Token valid: " + success)")
                     
-                    // The current token we have is already valid and not exired! YAY!
+                    // The current token we have is already valid and not expired! YAY!
                     // We have complete access to the User Information
                     if(success != "") {
                         
                         print("Token still valid, keep the user logged in :)")
                         
-                        // we just know now that the user is still authenticated
+                        // Handle Zooming to the user's location on FIRST TIME going to map
+                        // Then regulate re-zooming based on if the user got a new location recently
                         dispatch_async(dispatch_get_main_queue()) {
+                            
+                            // Code to set the region, if the region has not been set yet
+                            print("Region Set already: " + "\(DataControl.getInstance().mapRegionSet)")
+                            if(DataControl.getInstance().mapRegionSet == false){
+                                
+                                print("Setting region for the first time")
+                                
+                                // This will give us a region, and set it
+                                // -------------------------------------------------------------------------------
+                                // MAKE SURE THIS IS WORKING
+                                let regionRadius: CLLocationDistance = 2000
+                                let latitude = DataControl.getInstance().currentLatitude
+                                let longitude = DataControl.getInstance().currentLongitude
+                                print("Latitude: " + "\(latitude)")
+                                print("Longitude: " + "\(longitude)")
+                                
+                                let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                                let region = MKCoordinateRegionMakeWithDistance(center, regionRadius, regionRadius)
+                                self.userMap.setRegion(region, animated: true)
+                                
+                                DataControl.getInstance().mapRegionSet = true
+                                // -------------------------------------------------------------------------------
+                            }
                             
                         }
                     }
@@ -77,10 +100,7 @@ class MapViewController: UIViewController {
                         print("\(message)")
                         
                         // Remove the cached token and user ID, as they are expired
-                        self.prefs.removeObjectForKey("currentToken")
-                        self.prefs.removeObjectForKey("_id")
-                        self.prefs.removeObjectForKey("currentLatitude")
-                        self.prefs.removeObjectForKey("currentLongitude")
+                        DataControl.getInstance().clearUserPersistingData()
 
                         
                         // Send off a thread to get user off of screen...send them to the ProfileViewController for now...
@@ -89,9 +109,7 @@ class MapViewController: UIViewController {
                             
                             self.tabBarController!.selectedIndex = 0
                         }
-                        
                     }
-                    
                 }
                 else {
                     print("Data is nil")
@@ -116,33 +134,10 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         userMap.delegate = self
-        
         userMap.showsUserLocation = true
         
-        // Code to set the region, if the region has not been set yet
-        print("Region Set already: " + "\(regionSet)")
-        if(regionSet == false){
-            
-            print("Setting region for the first time")
-            
-            // This will give us a region, and set it
-            // -------------------------------------------------------------------------------
-            // MAKE SURE THIS IS WORKING
-            let regionRadius: CLLocationDistance = 2000
-            let latitude = prefs.valueForKey("currentLatitude") as! CLLocationDegrees
-            let longitude = prefs.valueForKey("currentLongitude") as! CLLocationDegrees
-            print("Latitude: " + "\(latitude)")
-            print("Longitude: " + "\(longitude)")
-
-            let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            let region = MKCoordinateRegionMakeWithDistance(center, regionRadius, regionRadius)
-            userMap.setRegion(region, animated: true)
-            
-            regionSet = true
-            // -------------------------------------------------------------------------------
-        }
         
         // Load fake JSON data
         // This is where the sample file of users is currently parsed, and the User annotations are created and added to an array

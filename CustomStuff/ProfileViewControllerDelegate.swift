@@ -27,21 +27,23 @@ extension ProfileViewController : CLLocationManagerDelegate {
         print("User Location Was updated " + "\(tempCountLocationUpdates)")
         
         let location = locations.last
-        print("Prefs value for latitidue: " + String(prefs.valueForKey("currentLatitude")))
+        print("Persistent value for latitude: " + "\(DataControl.getInstance().currentLatitude)")
         
         // First Location that is collected
         // Need to account for conditions on when to call this if block
-        if(persistentLocation == nil || prefs.stringForKey("needLocationUpdate") == "true"){
+        if(persistentLocation == nil || DataControl.getInstance().needLocationUpdate == true){
             
             //Only needed when app is already running and new user just logged in
-            prefs.setValue("false", forKey: "needLocationUpdate")
+            DataControl.getInstance().needLocationUpdate = false
             
             print("Just got first Location from user this session")
             persistentLocation = location
-            // Store most recent location in NSUserDefaults
+            
+            // Store most recent location in DataControl
             // Do this so that MapViewController can access most persistent location to find other users
-            prefs.setValue(location!.coordinate.latitude, forKey: "currentLatitude")
-            prefs.setValue(location!.coordinate.longitude, forKey: "currentLongitude")
+            DataControl.getInstance().currentLatitude = location!.coordinate.latitude
+            DataControl.getInstance().currentLongitude = location!.coordinate.longitude
+            DataControl.getInstance().mapRegionSet = false
             
             updateUserLocation()
         }
@@ -56,11 +58,12 @@ extension ProfileViewController : CLLocationManagerDelegate {
             // Do Api Call right here
             if(distance > 20){
                 
-                // Store most recent location in NSUserDefaults
+                // Store most recent location in DataControl
                 // Do this so that MapViewController can access most persistent location to find other users
+                DataControl.getInstance().currentLatitude = location!.coordinate.latitude
+                DataControl.getInstance().currentLongitude = location!.coordinate.longitude
+                DataControl.getInstance().mapRegionSet = false
 
-                prefs.setValue(location!.coordinate.latitude, forKey: "currentLatitude")
-                prefs.setValue(location!.coordinate.longitude, forKey: "currentLongitude")
                 
                 // Update the persistent location to the new one
                 persistentLocation = location
@@ -84,13 +87,14 @@ extension ProfileViewController : CLLocationManagerDelegate {
         // Use below line for testing, if you need to remove the current token
         //prefs.removeObjectForKey("currentToken")
         
-        if let currentToken = prefs.stringForKey("currentToken"){
+        if DataControl.getInstance().tokenExists(){
             
+            let currentToken = DataControl.getInstance().getToken()
             let urlString = "http://192.81.216.130:8000/api/updateUserLocation"
             
-            let storedID = "&_id=" + String(prefs.stringForKey("_id")!)
-            let latitude = "&latitude=" + String(prefs.valueForKey("currentLatitude")!)
-            let longitude = "&longitude=" + String(prefs.valueForKey("currentLongitude")!)
+            let storedID = "&_id=" + DataControl.getInstance().getID()
+            let latitude = "&latitude=" + String(DataControl.getInstance().currentLatitude)
+            let longitude = "&longitude=" + String(DataControl.getInstance().currentLongitude)
             
             print(latitude)
             print(longitude)
@@ -143,8 +147,7 @@ extension ProfileViewController : CLLocationManagerDelegate {
                         print("\(message)")
                         
                         // Remove the cached token and user ID, as they are expired
-                        self.prefs.removeObjectForKey("currentToken")
-                        self.prefs.removeObjectForKey("_id")
+                        DataControl.getInstance().clearUserPersistingData() 
                         
                         // Send off a thread to get user off of screen...send them to the ProfileViewController for now...
                         // Profile view controller will read that there are no keys in the prefs.
