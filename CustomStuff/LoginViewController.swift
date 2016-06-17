@@ -77,10 +77,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.errorMessage.textColor = UIColor.greenColor()
                         self.errorMessage.text = "Success!"
                         
-                        let prefs = NSUserDefaults.standardUserDefaults()
-                        prefs.setValue(token, forKey:"currentToken")
-                        prefs.setValue(_id, forKey:"_id")
-                        prefs.setValue("true", forKey:"needLocationUpdate")
+                        DataControl.getInstance().setUserPersistingData(token: token, _id: _id)
+                        DataControl.getInstance().needLocationUpdate = true
                         
                         print("Got the ID on login")
                         

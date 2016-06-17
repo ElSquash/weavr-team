@@ -37,9 +37,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     var locationManager = CLLocationManager()
     var tempCountLocationUpdates = 0
     var persistentLocation : CLLocation?
-    let prefs = NSUserDefaults.standardUserDefaults()
-    
-    
+        
     override func viewDidAppear(animated: Bool) {
         
         // Check NSUserDefaults for a "currentToken" to access the server with...
@@ -47,10 +45,12 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         
         //prefs.removeObjectForKey("currentToken")
         
-        if let currentToken = prefs.stringForKey("currentToken"){
+        if DataControl.getInstance().tokenExists(){
             
-            let storedID = prefs.stringForKey("_id")
-            print("My Current user ID is: " + storedID!)
+            let currentToken = DataControl.getInstance().getToken()
+            let storedID = DataControl.getInstance().getID()
+            
+            print("My Current user ID is: " + storedID)
             let urlString = "http://192.81.216.130:8000/api/getSingleUserInfo"
             var message = "foo"
             
@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
             let request  = NSMutableURLRequest(URL: url!)
             request.HTTPMethod = "POST"
             
-            let bodyData = "token=" + currentToken + "&_id=" + storedID!
+            let bodyData = "token=" + currentToken + "&_id=" + storedID
             
             request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding)
             
@@ -122,11 +122,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                         print("\(message)")
                         
                         // Remove the cached token and user ID, as they are expired
-                        self.prefs.removeObjectForKey("currentToken")
-                        self.prefs.removeObjectForKey("_id")
-                        self.prefs.removeObjectForKey("currentLatitude")
-                        self.prefs.removeObjectForKey("currentLongitude")
-
+                        DataControl.getInstance().clearUserPersistingData()
                         
                         // Stop getting location, if the user is going to be logged out
                         self.locationManager.stopUpdatingLocation()
